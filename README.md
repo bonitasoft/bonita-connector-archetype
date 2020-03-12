@@ -17,15 +17,7 @@ The archetype is now installed on your local maven repository, and is ready to b
 
  You can setup a Bonita connector project using the following command, from a terminal: 
 ```
-mvn archetype:generate 
--DarchetypeGroupId=org.bonitasoft.connectors 
--DarchetypeArtifactId=bonitasoft-connectors-archetype 
--DarchetypeVersion=1.0-SNAPSHOT 
--DgroupId=myGroupId
--DartifactId=myArtifactId
--Dversion=1.0-SNAPSHOT
--DconnectorName=myConnector
--Dlanguage=java
+mvn archetype:generate -DarchetypeGroupId=org.bonitasoft.connectors -DarchetypeArtifactId=bonitasoft-connectors-archetype -DarchetypeVersion=1.0-SNAPSHOT -DgroupId=myGroupId -DartifactId=myArtifactId -Dversion=1.0-SNAPSHOT -DconnectorName=myConnector -Dlanguage=java
 ```
 
  - **archetypeGroupId:** the group id of the connector archetype, cannot be changed.
