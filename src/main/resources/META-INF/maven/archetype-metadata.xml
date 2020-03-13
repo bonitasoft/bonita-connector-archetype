@@ -35,6 +35,9 @@
             	<include>connector.png</include>
             </includes>
         </fileSet>
+        <fileSet>
+            <directory>schemas</directory>
+        </fileSet>
         <fileSet filtered="true">
         	<directory/>
         	<includes>
