@@ -33,5 +33,6 @@ mvn archetype:generate -DarchetypeGroupId=org.bonitasoft.connectors -DarchetypeA
  - **language** _(optional)_: the language used in the connector project. Available values: 
 	 -  java _(default)_
 	 - groovy
+	 - kotlin
 
 A folder named _[your artifact id]_ is created, with your Bonita connector project, ready to use.

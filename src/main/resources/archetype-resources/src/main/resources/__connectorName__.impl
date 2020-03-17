@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <implementation:connectorImplementation xmlns:implementation="http://www.bonitasoft.org/ns/connector/implementation/6.0">
-  <implementationId>${connectorName}-impl</implementationId>lace -->
+  <implementationId>${connectorName}-impl</implementationId>
   <implementationVersion>$implementation.version$</implementationVersion>
   <definitionId>${connectorName}</definitionId>
   <definitionVersion>1.0.0</definitionVersion>
