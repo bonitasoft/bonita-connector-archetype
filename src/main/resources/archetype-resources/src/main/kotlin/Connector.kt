@@ -1,6 +1,4 @@
-package $
-
-{ groupId }
+package ${groupId}
 
 import org.bonitasoft.engine.connector.AbstractConnector
 import org.bonitasoft.engine.connector.ConnectorValidationException
