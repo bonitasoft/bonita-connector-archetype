@@ -20,7 +20,7 @@ The archetype is now installed on your local maven repository, and is ready to b
  _Make sure that you do not launch the command from an existing maven project._
  
 ```
-mvn archetype:generate -DarchetypeGroupId=org.bonitasoft.connectors -DarchetypeArtifactId=bonitasoft-connectors-archetype -DarchetypeVersion=1.0-SNAPSHOT -DgroupId=myGroupId -DartifactId=myArtifactId -Dversion=1.0-SNAPSHOT -DconnectorName=myConnector -Dlanguage=java
+mvn archetype:generate -DarchetypeGroupId=org.bonitasoft.connectors -DarchetypeArtifactId=bonitasoft-connectors-archetype -DarchetypeVersion=1.0-SNAPSHOT -DgroupId=myGroupId -DartifactId=myArtifactId -Dversion=1.0-SNAPSHOT -DconnectorName=myConnector -DbonitaVersion=7.10.0 -Dlanguage=java
 ```
 
  - **archetypeGroupId:** the group id of the connector archetype, cannot be changed.
@@ -30,8 +30,9 @@ mvn archetype:generate -DarchetypeGroupId=org.bonitasoft.connectors -DarchetypeA
  - **artifactId:** the artifact id of your connector
  - **version:** the version of your connector
  - **connectorName:** the name of your connector
+ - **bonitaVersion:** the targeted Bonita version
  - **language** _(optional)_: the language used in the connector project. Available values: 
-	 -  java _(default)_
+	 - java _(default)_
 	 - groovy
 	 - kotlin
 
