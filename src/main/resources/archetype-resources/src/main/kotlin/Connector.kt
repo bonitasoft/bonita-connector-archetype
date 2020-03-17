@@ -2,13 +2,11 @@ package ${groupId}
 
 import org.bonitasoft.engine.connector.AbstractConnector
 import org.bonitasoft.engine.connector.ConnectorValidationException
-import org.slf4j.LoggerFactory;
 
 class Connector : AbstractConnector {
 
     constructor() : super()
 
-    val logger = LoggerFactory.getLogger(Connector::class.java.name)
     val defaultInput = "defaultInput"
 
     override fun validateInputParameters() {
@@ -26,6 +24,6 @@ class Connector : AbstractConnector {
 
     override fun executeBusinessLogic() {
         val value = getInputParameter(defaultInput)
-        logger.info("Default input: $value")
+        println("Default input: $value")
     }
 }

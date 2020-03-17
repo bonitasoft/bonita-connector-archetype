@@ -3,12 +3,9 @@ package ${groupId};
 import org.bonitasoft.engine.connector.AbstractConnector;
 import org.bonitasoft.engine.connector.ConnectorException;
 import org.bonitasoft.engine.connector.ConnectorValidationException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class Connector extends AbstractConnector {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(Connector.class.getName());
     
     static final String DEFAULT_INPUT = "defaultInput";
     
@@ -31,7 +28,7 @@ public class Connector extends AbstractConnector {
     
     @Override
     protected void executeBusinessLogic() throws ConnectorException {
-        LOGGER.info(String.format("Default input: %s", getInputParameter(DEFAULT_INPUT)));
+        System.out.println(String.format("Default input: %s", getInputParameter(DEFAULT_INPUT)));
     }
 
 }

@@ -6,6 +6,7 @@
         name="bonitasoft-connector-archetype">
     <requiredProperties>
     	<requiredProperty key="connectorName"></requiredProperty>
+    	<requiredProperty key="bonitaVersion"></requiredProperty>
     	<requiredProperty key="language">
     		<defaultValue>java</defaultValue>
     	</requiredProperty>
