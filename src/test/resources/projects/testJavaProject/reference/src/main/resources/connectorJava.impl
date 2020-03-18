@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<implementation:connectorImplementation xmlns:implementation="http://www.bonitasoft.org/ns/connector/implementation/6.0">
+  <implementationId>connectorJava-impl</implementationId>
+  <implementationVersion>$implementation.version$</implementationVersion>
+  <definitionId>connectorJava</definitionId>
+  <definitionVersion>1.0.0</definitionVersion>
+  <implementationClassname>com.company.bonitasoft.Connector</implementationClassname>
+  <hasSources>false</hasSources>
+  <description>Default connector implementation</description>
+
+$Dependencies$
+
+</implementation:connectorImplementation>
