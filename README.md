@@ -10,7 +10,7 @@ The archetype has to be installed on your local maven repository (not available 
  1. Clone this project
  2. From a terminal, enter the following command at the root of the cloned project: 
 ```
-mvn clean install
+./mvnw clean install
 ```
 
 The archetype is now installed on your local maven repository, and is ready to be used.
