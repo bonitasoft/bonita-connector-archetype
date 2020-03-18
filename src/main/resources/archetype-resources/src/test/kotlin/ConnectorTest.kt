@@ -26,9 +26,10 @@ class ConnectorTest {
     }
     
     @Test
-    fun should_accept_valid_input() {
+    fun should_create_output_for_valid_input() {
         val connector = Connector()
         connector.setInputParameters(mapOf("defaultInput" to "valid"))
-        connector.validateInputParameters()
+        val output = connector.execute()
+        assert(output["defaultOutput"] == "valid - output") { "" }
     }
 }

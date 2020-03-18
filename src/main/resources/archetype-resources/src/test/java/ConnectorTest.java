@@ -1,8 +1,12 @@
 package ${groupId};
 
+import static org.junit.Assert.assertTrue;
+
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
+import org.bonitasoft.engine.connector.ConnectorException;
 import org.bonitasoft.engine.connector.ConnectorValidationException;
 import org.junit.Test;
 
@@ -33,12 +37,14 @@ public class ConnectorTest {
     }
 
     @Test
-    public void should_accept_valid_input() throws ConnectorValidationException {
+    public void should_create_output_for_valid_input() throws ConnectorException {
         Connector connector = new Connector();
         Map<String, Object> parameters = new HashMap<>();
         parameters.put(Connector.DEFAULT_INPUT, "valid");
         connector.setInputParameters(parameters);
-        connector.validateInputParameters();
+        Map<String, Object> outputs = connector.execute();
+        assertTrue("Expected 'valid - output' as output.",
+                Objects.equals(outputs.get("defaultOutput"), "valid - output"));
     }
 
 }
