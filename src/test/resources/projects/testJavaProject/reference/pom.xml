@@ -1,0 +1,101 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    
+    <parent>
+        <groupId>org.bonitasoft.connectors</groupId>
+        <artifactId>bonita-connectors</artifactId>
+        <version>1.0.0</version>
+    </parent>
+ 
+    <groupId>com.company.bonitasoft</groupId>
+    <artifactId>connector-test</artifactId>
+    <version>1.0.0</version>
+    <name>connector-test</name>
+    <packaging>jar</packaging>
+    
+    <properties>
+        <bonita.engine.version>7.10.0</bonita.engine.version>
+    </properties>
+    
+    <dependencies>
+        <dependency>
+            <artifactId>bonita-common</artifactId>
+            <groupId>org.bonitasoft.engine</groupId>
+            <version>${bonita.engine.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <artifactId>junit</artifactId>
+            <groupId>junit</groupId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-release-plugin</artifactId>
+                    <version>2.5.3</version>
+                    <configuration>
+                        <tagNameFormat>@{project.version}</tagNameFormat>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <version>2.5</version>
+                    <executions>
+                        <execution>
+                            <id>assemble</id>
+                            <phase>none</phase>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+	                <execution>
+	                    <id>all</id>
+	                    <phase>package</phase>
+	                    <goals>
+	                        <goal>single</goal>
+	                    </goals>
+	                    <configuration>
+	                        <descriptor>${basedir}/connector-assembly.xml</descriptor>
+	                        <appendAssemblyId>true</appendAssemblyId>
+	                    </configuration>
+	                </execution>
+                    <execution>
+                        <id>connectorJava</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <descriptor>${basedir}/connectorJava-assembly.xml</descriptor>
+                            <appendAssemblyId>true</appendAssemblyId>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+ 
+</project>
