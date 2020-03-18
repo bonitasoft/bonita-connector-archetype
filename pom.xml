@@ -2,10 +2,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
  
-  <groupId>org.bonitasoft.connectors</groupId>
-  <artifactId>bonitasoft-connectors-archetype</artifactId>
-  <version>1.0-SNAPSHOT</version>
-  <name>Connector archetype</name>
+  <groupId>org.bonitasoft</groupId>
+  <artifactId>bonita-connector-archetype</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <name>Bonita Connector Archetype</name>
   <packaging>maven-archetype</packaging>
  
   <build>

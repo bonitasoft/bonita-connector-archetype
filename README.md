@@ -1,10 +1,8 @@
 [![Actions Status](https://github.com/bonitasoft/bonita-connector-archetype/workflows/CI/badge.svg)](https://github.com/bonitasoft/bonita-connector-archetype/actions)
 
+## Bonita Connector Archetype
 
-
-## Bonitasoft connector archetype
-
-This project contains a maven archetype, which allow to easily setup a Bonitasoft connector project. 
+This project contains a maven archetype, which allow to easily setup a Bonita connector project. 
 
 ### Install the archetype
 The archetype has to be installed on your local maven repository (not available on maven central for now).
@@ -24,7 +22,7 @@ The archetype is now installed on your local maven repository, and is ready to b
  _Make sure that you do not launch the command from an existing maven project._
  
 ```
-mvn archetype:generate -DarchetypeGroupId=org.bonitasoft.connectors -DarchetypeArtifactId=bonitasoft-connectors-archetype -DarchetypeVersion=1.0-SNAPSHOT -DgroupId=myGroupId -DartifactId=myArtifactId -Dversion=1.0-SNAPSHOT -DconnectorName=myConnector -DbonitaVersion=7.10.0 -Dlanguage=java
+mvn archetype:generate -DarchetypeGroupId=org.bonitasoft.connectors -DarchetypeArtifactId=bonita-connector-archetype -DarchetypeVersion=1.0-SNAPSHOT -DgroupId=myGroupId -DartifactId=myArtifactId -Dversion=1.0-SNAPSHOT -DconnectorName=myConnector -DbonitaVersion=7.10.0 -Dlanguage=java
 ```
 
  - **archetypeGroupId:** the group id of the connector archetype, cannot be changed.
