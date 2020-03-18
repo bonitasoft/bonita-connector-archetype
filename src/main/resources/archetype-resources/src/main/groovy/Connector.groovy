@@ -7,6 +7,7 @@ import org.bonitasoft.engine.connector.ConnectorValidationException;
 class Connector extends AbstractConnector {
     
     def defaultInput = "defaultInput"
+    def defaultOutput = "defaultOutput"
     
     @Override
     def void validateInputParameters() throws ConnectorValidationException {
@@ -28,5 +29,6 @@ class Connector extends AbstractConnector {
     def void executeBusinessLogic() throws ConnectorException {
         def defaultInput = getInputParameter(defaultInput)
         println "Default input: $defaultInput"
+        setOutputParameter(defaultOutput, "$defaultInput - output".toString())
     }
 }

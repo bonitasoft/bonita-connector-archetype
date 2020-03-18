@@ -8,6 +8,7 @@ class Connector : AbstractConnector {
     constructor() : super()
 
     val defaultInput = "defaultInput"
+    val defaultOutput = "defaultOutput"
 
     override fun validateInputParameters() {
         checkMandatoryStringInput(defaultInput)
@@ -25,5 +26,6 @@ class Connector : AbstractConnector {
     override fun executeBusinessLogic() {
         val value = getInputParameter(defaultInput)
         println("Default input: $value")
+        setOutputParameter(defaultOutput, "$value - output")
     }
 }

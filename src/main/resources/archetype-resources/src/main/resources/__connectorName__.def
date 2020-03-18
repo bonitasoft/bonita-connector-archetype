@@ -6,6 +6,7 @@
   	<category icon="connector.png" id="Custom"/>
   
 	<input mandatory="true" name="defaultInput" type="java.lang.String"/>
+	<output name="defaultOutput" type="java.lang.String"/>
 	
 	<page id="defaultPage">
     	<widget xsi:type="definition:Text" id="defaultInputWidget" inputName="defaultInput"/>
