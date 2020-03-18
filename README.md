@@ -1,4 +1,4 @@
-[![Actions Status](https://github.com/bonitasoft/bonita-connector-archetype/workflows/CI/badge.svg)](https://github.com/bonitasoft/bonita-connector-archetype/actions)
+[![Actions Status](https://github.com/bonitasoft/bonita-connector-archetype/workflows/Build/badge.svg)](https://github.com/bonitasoft/bonita-connector-archetype/actions)
 
 ## Bonita Connector Archetype
 
