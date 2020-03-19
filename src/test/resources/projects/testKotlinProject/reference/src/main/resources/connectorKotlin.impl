@@ -8,6 +8,7 @@
   <hasSources>false</hasSources>
   <description>Default connector implementation</description>
 
+<!-- retrieved from the pom.xml at build time -->
 $Dependencies$
 
 </implementation:connectorImplementation>
