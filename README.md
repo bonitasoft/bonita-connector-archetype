@@ -1,5 +1,7 @@
 [![Actions Status](https://github.com/bonitasoft/bonita-connector-archetype/workflows/Build/badge.svg)](https://github.com/bonitasoft/bonita-connector-archetype/actions)
 
+![Release](https://github.com/bonitasoft/bonita-connector-archetype/workflows/Release/badge.svg?branch=release-1.0.0)
+
 ## Bonita Connector Archetype
 
 This project contains a maven archetype, which allow to easily setup a Bonita connector project. 
