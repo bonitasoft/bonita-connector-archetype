@@ -11,10 +11,15 @@
   <description>Maven archetype to bootstrap a Bonita connector project</description>
   <url>https://www.bonitasoft.com</url>
   
-  <organization>
-    <name>BonitaSoft</name>
-    <url>https://www.bonitasoft.com</url>
-  </organization>
+  <developers>
+      <developer>
+          <id>bonitasoft</id>
+          <name>Bonitasoft R&D</name>
+          <email>rd.user@bonitasoft.com</email>
+          <organization>Bonitasoft</organization>
+          <organizationUrl>https://www.bonitasoft.com</organizationUrl>
+      </developer>
+  </developers>
   
   <licenses>
     <license>
