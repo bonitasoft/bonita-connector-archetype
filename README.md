@@ -1,6 +1,6 @@
 [![Actions Status](https://github.com/bonitasoft/bonita-connector-archetype/workflows/Build/badge.svg)](https://github.com/bonitasoft/bonita-connector-archetype/actions)
 
-[![Release](https://github.com/bonitasoft/bonita-connector-archetype/workflows/Release/badge.svg)]((https://github.com/bonitasoft/bonita-connector-archetype/actions))
+[![Release](https://github.com/bonitasoft/bonita-connector-archetype/workflows/Release/badge.svg)](https://github.com/bonitasoft/bonita-connector-archetype/actions)
 
 ## Bonita Connector Archetype
 
