@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <implementation:connectorImplementation xmlns:implementation="http://www.bonitasoft.org/ns/connector/implementation/6.0">
-  <implementationId>connectorGroovy-impl</implementationId>
-  <implementationVersion>$implementation.version$</implementationVersion>
-  <definitionId>connectorGroovy</definitionId>
-  <definitionVersion>1.0.0</definitionVersion>
-  <implementationClassname>com.company.bonitasoft.Connector</implementationClassname>
-  <hasSources>false</hasSources>
+  <implementationId>connectorGroovy-impl</implementationId> <!-- Id of the implementation -->
+  <implementationVersion>$implementation.version$</implementationVersion> <!-- Version of the implementation, retrieved from the pom.xml at build time -> ${project.version} -->
+  <definitionId>connectorGroovy</definitionId> <!-- Id of the definition implemented -->
+  <definitionVersion>1.0.0</definitionVersion> <!-- Version of the definition implemented -->
+  <implementationClassname>com.company.bonitasoft.Connector</implementationClassname> <!-- Path to the main implementation class -->
+  <hasSources>false</hasSources> <!-- true if you want to embbed the sources in the jar builded -->
   <description>Default connector implementation</description>
 
 <!-- retrieved from the pom.xml at build time -->
