@@ -8,10 +8,10 @@
         <version>1.0.0</version>
     </parent>
  
-    <groupId>com.company.myCompany</groupId>
-    <artifactId>connector-test</artifactId>
-    <version>1.0.0</version>
-    <name>connector-test</name>
+    <groupId>${groupId}</groupId>
+    <artifactId>${artifactId}</artifactId>
+    <version>${version}</version>
+    <name>${artifactId}</name>
     <packaging>jar</packaging>
     
     <properties>

@@ -8,7 +8,7 @@
         <version>1.0.0</version>
     </parent>
  
-    <groupId>com.company.myCompany</groupId>
+    <groupId>com.company.bonitasoft</groupId>
     <artifactId>connector-test</artifactId>
     <version>1.0.0</version>
     <name>connector-test</name>
