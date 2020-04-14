@@ -5,10 +5,12 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         name="bonitasoft-connector-archetype">
     <requiredProperties>
-    	<requiredProperty key="connectorName"></requiredProperty>
+    	<requiredProperty key="connectorName">
+    	   <validationRegex>^[a-zA-Z0-9\-]+$</validationRegex>
+    	</requiredProperty>
     	<requiredProperty key="bonitaVersion"></requiredProperty>
     	<requiredProperty key="language">
-    		<defaultValue>java</defaultValue>
+    	   <validationRegex>^java$|^groovy$|^kotlin$</validationRegex>
     	</requiredProperty>
     </requiredProperties>
     <fileSets>
@@ -18,7 +20,6 @@
         <fileSet filtered="true" packaged="true">
             <directory>src/test/java</directory>
         </fileSet>
-        
         
         <fileSet filtered="true" packaged="true">
             <directory>src/main/groovy</directory>
