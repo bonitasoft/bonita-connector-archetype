@@ -39,5 +39,8 @@ mvn archetype:generate -DarchetypeGroupId=org.bonitasoft.archetypes -DarchetypeA
 	 - java _(default)_
 	 - groovy
 	 - kotlin
+ - **wrapper** _(optional)_: install a [maven wrapper](https://github.com/takari/maven-wrapper). Available values: 
+     - true _(default)_
+     - false
 
 A folder named _[your artifact id]_ is created, with your Bonita connector project, ready to use.

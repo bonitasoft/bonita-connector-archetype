@@ -10,7 +10,11 @@
     	<requiredProperty key="language">
     		<defaultValue>java</defaultValue>
     	</requiredProperty>
+    	<requiredProperty key="wrapper"> 
+    	   <defaultValue>true</defaultValue>
+    	</requiredProperty>
     </requiredProperties>
+    
     <fileSets>
         <fileSet filtered="true" packaged="true">
             <directory>src/main/java</directory>
