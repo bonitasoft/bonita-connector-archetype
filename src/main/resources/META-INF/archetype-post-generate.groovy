@@ -23,8 +23,11 @@ if(installWrapper) {
 }
 
 def installMavenWrapper(Logger logger, Path projectPath) {
-    logger.info("Installing maven wrapper...")
-    println "cmd /c mvn -N io.takari:maven:0.7.7:wrapper".execute(null, projectPath.toFile()).text
+    def cmd = System.properties['os.name'].toLowerCase().contains('windows')
+        ? "cmd /c mvn -N io.takari:maven:0.7.7:wrapper"
+        : "mvn -N io.takari:maven:0.7.7:wrapper";
+    logger.info("Installing maven wrapper... ($cmd)")
+    println cmd.execute(null, projectPath.toFile()).text
 }
 
 def prepareKotlinProject(Logger logger, Path projectPath) {
