@@ -12,11 +12,7 @@
     	<requiredProperty key="language">
     	   <validationRegex>^java$|^groovy$|^kotlin$</validationRegex>
     	</requiredProperty>
-    	<requiredProperty key="wrapper"> 
-    	   <defaultValue>true</defaultValue>
-    	</requiredProperty>
     </requiredProperties>
-    
     <fileSets>
         <fileSet filtered="true" packaged="true">
             <directory>src/main/java</directory>

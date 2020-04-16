@@ -6,7 +6,6 @@ def logger = Logger.getLogger("Archetype post generate")
 
 Path projectPath = Paths.get(request.outputDirectory, request.artifactId)
 def language = request.properties.get("language")
-def installWrapper = Boolean.valueOf(request.properties.get("wrapper"))
 
 if (language == "groovy") {
     prepareGroovyProject(logger, projectPath)
@@ -17,14 +16,6 @@ if (language == "groovy") {
 } else {
     logger.warning("Language '$language' isn't supported. Only 'java' , 'kotlin' and 'groovy' are supported.")
     prepareJavaProject(logger, projectPath)
-}
-if(installWrapper) {
-    installMavenWrapper(logger, projectPath)
-}
-
-def installMavenWrapper(Logger logger, Path projectPath) {
-    logger.info("Installing maven wrapper...")
-    println "cmd /c mvn -N io.takari:maven:0.7.7:wrapper".execute(null, projectPath.toFile()).text
 }
 
 def prepareKotlinProject(Logger logger, Path projectPath) {
