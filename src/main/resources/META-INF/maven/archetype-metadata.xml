@@ -50,6 +50,12 @@
         <fileSet>
             <directory>schemas</directory>
         </fileSet>
+        <fileSet>
+            <directory/>
+            <includes>
+                <include>README.md</include>
+            </includes>
+        </fileSet>
         <fileSet filtered="true">
         	<directory/>
         	<includes>
