@@ -211,9 +211,9 @@ Those two assembly are here to help you to:
 
 To build the connector project, type the following command at the root of the project : 
 ```
-mvn clean install
+./mvnw clean install
 ```
 The two zip archives can be found in the folder _target_ after the build: 
 
- - **[artifactd id]-[pom version]-all.zip** for the _all in one_ archive
- - **[artifactd id]-[pom version]-[connector name].zip** for the implementation archive
+ - **[artifact id]-[artifact version]-all.zip** for the _all in one_ archive
+ - **[artifact id]-[artifact version]-[connector name].zip** for the implementation archive
