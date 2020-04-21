@@ -45,6 +45,9 @@ You'll then have to specify interactively the properties of your project:
     - java
     - groovy
     - kotlin
+- **wrapper** _(optional)_: install a [maven wrapper](https://github.com/takari/maven-wrapper). Available values: 
+    - true _(default)_
+    - false
 
 A folder named _[your artifact id]_ is created, with your Bonita connector project, ready to use.
 
