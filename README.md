@@ -38,6 +38,9 @@ You'll then have to specify interactively the properties of your project:
 - **version:** the version of your connector _(default value: 1.0-SNAPSHOT)_
 - **package** the package in which the connector source files will be created _(default value: the group id of the connector)_
 - **bonitaVersion:** the targeted Bonita version
+- **className:** the class name of your connector 
+    - Must match the following regex: `^[a-zA-Z_$][a-zA-Z\d_$]+$` (A Java classname valid identifier)
+    - Example: _MyConnector1_
 - **connectorName:** the name of your connector
     - Must match the following regex: `^[a-zA-Z0-9\-]+$`
     - Example: _myConnector-1_
