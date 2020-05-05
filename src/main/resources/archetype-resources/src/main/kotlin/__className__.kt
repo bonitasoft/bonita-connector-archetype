@@ -1,9 +1,9 @@
-package ${groupId}
+package ${package}
 
 import org.bonitasoft.engine.connector.AbstractConnector
 import org.bonitasoft.engine.connector.ConnectorValidationException
 
-class Connector : AbstractConnector {
+class ${className} : AbstractConnector {
 
     constructor() : super()
 

@@ -1,4 +1,4 @@
-package ${groupId};
+package ${package};
 
 import java.util.Map;
 
@@ -6,7 +6,7 @@ import org.bonitasoft.engine.connector.AbstractConnector;
 import org.bonitasoft.engine.connector.ConnectorException;
 import org.bonitasoft.engine.connector.ConnectorValidationException;
 
-public class Connector extends AbstractConnector {
+public class ${className} extends AbstractConnector {
 
     static final String DEFAULT_INPUT = "defaultInput";
     static final String DEFAULT_OUTPUT = "defaultOutput";
