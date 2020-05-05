@@ -1,12 +1,14 @@
 package ${package};
 
-import java.util.Map;
+import java.util.logging.Logger;
 
 import org.bonitasoft.engine.connector.AbstractConnector;
 import org.bonitasoft.engine.connector.ConnectorException;
 import org.bonitasoft.engine.connector.ConnectorValidationException;
 
 public class ${className} extends AbstractConnector {
+
+    private static final Logger LOGGER = Logger.getLogger(${className}.class.getName());
 
     static final String DEFAULT_INPUT = "defaultInput";
     static final String DEFAULT_OUTPUT = "defaultOutput";
@@ -41,7 +43,7 @@ public class ${className} extends AbstractConnector {
      */
     @Override
     protected void executeBusinessLogic() throws ConnectorException {
-        System.out.println(String.format("Default input: %s", getInputParameter(DEFAULT_INPUT)));
+        LOGGER.info(String.format("Default input: %s", getInputParameter(DEFAULT_INPUT)));
         setOutputParameter(DEFAULT_OUTPUT, String.format("%s - output", getInputParameter(DEFAULT_INPUT)));
     }
     

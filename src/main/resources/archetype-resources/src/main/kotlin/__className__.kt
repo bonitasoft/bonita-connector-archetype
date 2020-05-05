@@ -1,5 +1,7 @@
 package ${package}
 
+import java.util.logging.Logger
+
 import org.bonitasoft.engine.connector.AbstractConnector
 import org.bonitasoft.engine.connector.ConnectorValidationException
 
@@ -9,6 +11,7 @@ class ${className} : AbstractConnector {
 
     val defaultInput = "defaultInput"
     val defaultOutput = "defaultOutput"
+    val logger = Logger.getLogger(${className}::class.java.name)
 
     /**
      * Perform validation on the inputs defined on the connector definition (src/main/resources/${connectorName}.def)
@@ -36,7 +39,7 @@ class ${className} : AbstractConnector {
      */
     override fun executeBusinessLogic() {
         val value = getInputParameter(defaultInput)
-        println("Default input: $value")
+        logger.info("Default input: $value")
         setOutputParameter(defaultOutput, "$value - output")
     }
     

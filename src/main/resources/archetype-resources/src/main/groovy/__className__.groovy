@@ -4,6 +4,9 @@ import org.bonitasoft.engine.connector.AbstractConnector;
 import org.bonitasoft.engine.connector.ConnectorException;
 import org.bonitasoft.engine.connector.ConnectorValidationException;
 
+import groovy.util.logging.Slf4j
+
+@Slf4j
 class ${className} extends AbstractConnector {
     
     def defaultInput = "defaultInput"
@@ -39,7 +42,7 @@ class ${className} extends AbstractConnector {
     @Override
     def void executeBusinessLogic() throws ConnectorException {
         def defaultInput = getInputParameter(defaultInput)
-        println "Default input: $defaultInput"
+        log.info "Default input: $defaultInput"
         setOutputParameter(defaultOutput, "$defaultInput - output".toString())
     }
     
