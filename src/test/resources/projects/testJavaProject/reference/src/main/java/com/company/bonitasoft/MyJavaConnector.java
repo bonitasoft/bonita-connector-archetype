@@ -6,7 +6,7 @@ import org.bonitasoft.engine.connector.AbstractConnector;
 import org.bonitasoft.engine.connector.ConnectorException;
 import org.bonitasoft.engine.connector.ConnectorValidationException;
 
-public class Connector extends AbstractConnector {
+public class MyJavaConnector extends AbstractConnector {
 
     static final String DEFAULT_INPUT = "defaultInput";
     static final String DEFAULT_OUTPUT = "defaultOutput";

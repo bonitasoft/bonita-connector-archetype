@@ -3,7 +3,7 @@ package com.company.bonitasoft
 import org.bonitasoft.engine.connector.AbstractConnector
 import org.bonitasoft.engine.connector.ConnectorValidationException
 
-class Connector : AbstractConnector {
+class MyKotlinConnector : AbstractConnector {
 
     constructor() : super()
 

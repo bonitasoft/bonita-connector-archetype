@@ -4,7 +4,7 @@ import org.bonitasoft.engine.connector.AbstractConnector;
 import org.bonitasoft.engine.connector.ConnectorException;
 import org.bonitasoft.engine.connector.ConnectorValidationException;
 
-class Connector extends AbstractConnector {
+class MyGroovyConnector extends AbstractConnector {
     
     def defaultInput = "defaultInput"
     def defaultOutput = "defaultOutput"

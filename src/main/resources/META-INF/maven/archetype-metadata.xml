@@ -8,6 +8,9 @@
     	<requiredProperty key="connectorName">
     	   <validationRegex>^[a-zA-Z0-9\-]+$</validationRegex>
     	</requiredProperty>
+    	<requiredProperty key="className">
+           <validationRegex>^[a-zA-Z_$][a-zA-Z\d_$]+$</validationRegex>
+        </requiredProperty>
     	<requiredProperty key="bonitaVersion"></requiredProperty>
     	<requiredProperty key="language">
     	   <validationRegex>^java$|^groovy$|^kotlin$</validationRegex>
