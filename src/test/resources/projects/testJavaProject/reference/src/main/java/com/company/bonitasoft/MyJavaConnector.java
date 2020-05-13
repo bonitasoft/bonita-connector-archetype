@@ -14,7 +14,7 @@ public class MyJavaConnector extends AbstractConnector {
     static final String DEFAULT_OUTPUT = "defaultOutput";
 
     /**
-     * Perform validation on the inputs defined on the connector definition (src/main/resources/connectorJava.def)
+     * Perform validation on the inputs defined on the connector definition (src/main/resources/connector-java-test.def)
      * You should: 
      * - validate that mandatory inputs are presents
      * - validate that the content of the inputs is coherent with your use case (e.g: validate that a date is / isn't in the past ...)

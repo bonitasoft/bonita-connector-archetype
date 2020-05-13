@@ -5,7 +5,9 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         name="bonitasoft-connector-archetype">
     <requiredProperties>
-    	<requiredProperty key="connectorName">
+    	<requiredProperty key="groupId">
+    	</requiredProperty>
+    	<requiredProperty key="artifactId">
     	   <validationRegex>^[a-zA-Z0-9\-]+$</validationRegex>
     	</requiredProperty>
     	<requiredProperty key="className">
@@ -68,8 +70,7 @@
         	<includes>
         		<include>groovy-pom.xml</include>
         		<include>kotlin-pom.xml</include>
-        		<include>connector-assembly.xml</include>
-        		<include>__connectorName__-assembly.xml</include>
+        		<include>assembly.xml</include>
         	</includes>
         </fileSet>
     </fileSets>

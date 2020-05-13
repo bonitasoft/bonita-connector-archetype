@@ -14,7 +14,7 @@ class MyKotlinConnector : AbstractConnector {
     val logger = Logger.getLogger(MyKotlinConnector::class.java.name)
 
     /**
-     * Perform validation on the inputs defined on the connector definition (src/main/resources/connectorKotlin.def)
+     * Perform validation on the inputs defined on the connector definition (src/main/resources/connector-kotlin-test.def)
      * You should: 
      * - validate that mandatory inputs are presents
      * - validate that the content of the inputs is coherent with your use case (e.g: validate that a date is / isn't in the past ...)

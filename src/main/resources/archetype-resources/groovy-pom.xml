@@ -104,27 +104,15 @@
                 <artifactId>maven-assembly-plugin</artifactId>
                 <executions>
 	                <execution>
-	                    <id>all</id>
 	                    <phase>package</phase>
 	                    <goals>
 	                        <goal>single</goal>
 	                    </goals>
 	                    <configuration>
-	                        <descriptor>${basedir}/connector-assembly.xml</descriptor>
-	                        <appendAssemblyId>true</appendAssemblyId>
+	                        <descriptor>${basedir}/assembly.xml</descriptor>
+	                        <appendAssemblyId>false</appendAssemblyId>
 	                    </configuration>
 	                </execution>
-                    <execution>
-                        <id>connector-test</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                        <configuration>
-                            <descriptor>${basedir}/${connectorName}-assembly.xml</descriptor>
-                            <appendAssemblyId>true</appendAssemblyId>
-                        </configuration>
-                    </execution>
                 </executions>
             </plugin>
         </plugins>

@@ -198,21 +198,11 @@ The root _pom.xml_ file has the following parent:
 ```
 This parent contains the logic that make the replacements in the implementation xml file at build time.
 
-By default, two zip archives are built: 
-
- - One containing all the definitions and implementations found in the project (built using the file _connector-assembly.xml)_
- - One containing only the default implementation generated (built using the file _[connector name]-assembly.xml_
-
-Those two assembly are here to help you to:
-
- - Build an _all in one_ zip archive for all the definitions and implementation created in this project. By importing this archive in a Bonita Studio you will import all the definitions and implementations created in the project
- - Build a single zip archive with only one implementation. This implementation zip archive can be imported in a Bonita Studio, but also in a Bonita Bundle to update a connector implementation at runtime.
+By default, a zip archives is built containing all the definitions and implementations found in the project.
+By importing this archive in a Bonita Studio you will import all the definitions and implementations created in the project
 
 To build the connector project, type the following command at the root of the project : 
 ```
 ./mvnw clean install
 ```
-The two zip archives can be found in the folder _target_ after the build: 
-
- - **[artifact id]-[artifact version]-all.zip** for the _all in one_ archive
- - **[artifact id]-[artifact version]-[connector name].zip** for the implementation archive
+The built archive can be found in here `target/[artifact id]-[artifact version].zip` after the build.
