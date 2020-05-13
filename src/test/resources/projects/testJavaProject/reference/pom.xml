@@ -9,9 +9,9 @@
     </parent>
  
     <groupId>com.company.bonitasoft</groupId>
-    <artifactId>connector-test</artifactId>
+    <artifactId>connector-java-test</artifactId>
     <version>1.0.0</version>
-    <name>connector-test</name>
+    <name>connector-java-test</name>
     <packaging>jar</packaging>
     
     <properties>
@@ -64,27 +64,15 @@
                 <artifactId>maven-assembly-plugin</artifactId>
                 <executions>
 	                <execution>
-	                    <id>all</id>
 	                    <phase>package</phase>
 	                    <goals>
 	                        <goal>single</goal>
 	                    </goals>
 	                    <configuration>
-	                        <descriptor>${basedir}/connector-assembly.xml</descriptor>
-	                        <appendAssemblyId>true</appendAssemblyId>
+	                        <descriptor>${basedir}/assembly.xml</descriptor>
+	                        <appendAssemblyId>false</appendAssemblyId>
 	                    </configuration>
 	                </execution>
-                    <execution>
-                        <id>connectorJava</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                        <configuration>
-                            <descriptor>${basedir}/connectorJava-assembly.xml</descriptor>
-                            <appendAssemblyId>true</appendAssemblyId>
-                        </configuration>
-                    </execution>
                 </executions>
             </plugin>
         </plugins>

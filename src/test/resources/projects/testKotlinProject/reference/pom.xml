@@ -9,9 +9,9 @@
     </parent>
  
     <groupId>com.company.bonitasoft</groupId>
-    <artifactId>connector-test</artifactId>
+    <artifactId>connector-kotlin-test</artifactId>
     <version>1.0.0</version>
-    <name>connector-test</name>
+    <name>connector-kotlin-test</name>
     <packaging>jar</packaging>
     
     <properties>
@@ -81,25 +81,13 @@
                 <artifactId>maven-assembly-plugin</artifactId>
                 <executions>
                     <execution>
-                        <id>all</id>
                         <phase>package</phase>
                         <goals>
                             <goal>single</goal>
                         </goals>
                         <configuration>
-                            <descriptor>${basedir}/connector-assembly.xml</descriptor>
-                            <appendAssemblyId>true</appendAssemblyId>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>connectorKotlin</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                        <configuration>
-                            <descriptor>${basedir}/connectorKotlin-assembly.xml</descriptor>
-                            <appendAssemblyId>true</appendAssemblyId>
+                            <descriptor>${basedir}/assembly.xml</descriptor>
+                            <appendAssemblyId>false</appendAssemblyId>
                         </configuration>
                     </execution>
                 </executions>

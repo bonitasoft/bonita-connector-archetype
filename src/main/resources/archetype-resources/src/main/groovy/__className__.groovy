@@ -9,18 +9,18 @@ import groovy.util.logging.Slf4j
 @Slf4j
 class ${className} extends AbstractConnector {
     
-    def defaultInput = "defaultInput"
-    def defaultOutput = "defaultOutput"
+    def static final DEFAULT_INPUT = "defaultInput"
+    def static final DEFAULT_OUTPUT = "defaultOutput"
     
     /**
-     * Perform validation on the inputs defined on the connector definition (src/main/resources/${connectorName}.def)
+     * Perform validation on the inputs defined on the connector definition (src/main/resources/${artifactId}.def)
      * You should:
      * - validate that mandatory inputs are presents
      * - validate that the content of the inputs is coherent with your use case (e.g: validate that a date is / isn't in the past ...)
      */
     @Override
     def void validateInputParameters() throws ConnectorValidationException {
-        checkMandatoryStringInput(defaultInput)
+        checkMandatoryStringInput(DEFAULT_INPUT)
     }
     
     def checkMandatoryStringInput(inputName) throws ConnectorValidationException {
@@ -41,9 +41,9 @@ class ${className} extends AbstractConnector {
      */
     @Override
     def void executeBusinessLogic() throws ConnectorException {
-        def defaultInput = getInputParameter(defaultInput)
-        log.info "Default input: $defaultInput"
-        setOutputParameter(defaultOutput, "$defaultInput - output".toString())
+        def defaultInput = getInputParameter(DEFAULT_INPUT)
+        log.info "$DEFAULT_INPUT : $defaultInput"
+        setOutputParameter(DEFAULT_OUTPUT, "$defaultInput - output".toString())
     }
     
     /**
