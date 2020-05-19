@@ -6,17 +6,6 @@
 
 This project contains a maven archetype, which allow to easily setup a Bonita connector project. 
 
-### Install the archetype
-The archetype has to be installed on your local maven repository (not available on maven central for now).
-
- 1. Clone this project
- 2. From a terminal, enter the following command at the root of the cloned project: 
-```
-./mvnw clean install
-```
-
-The archetype is now installed on your local maven repository, and is ready to be used.
-
 ### Setup a connector project using the archetype 
 
  You can setup a Bonita connector project using the following command, from a terminal: 
@@ -24,7 +13,7 @@ The archetype is now installed on your local maven repository, and is ready to b
  _Make sure that you do not launch the command from an existing maven project._
  
 ```
-mvn archetype:generate -DarchetypeGroupId=org.bonitasoft.archetypes -DarchetypeArtifactId=bonita-connector-archetype -DarchetypeVersion=1.0.0-SNAPSHOT
+mvn archetype:generate -DarchetypeGroupId=org.bonitasoft.archetypes -DarchetypeArtifactId=bonita-connector-archetype -DarchetypeVersion=1.0.0
 ```
 
 - **archetypeGroupId:** the group id of the connector archetype.
