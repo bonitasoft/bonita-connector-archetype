@@ -5,23 +5,23 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         name="bonitasoft-connector-archetype">
     <requiredProperties>
-    	<requiredProperty key="groupId">
-    	</requiredProperty>
-    	<requiredProperty key="artifactId">
-    	   <validationRegex>^[a-zA-Z0-9\-]+$</validationRegex>
-    	</requiredProperty>
-    	<requiredProperty key="className">
-           <validationRegex>^[a-zA-Z_$][a-zA-Z\d_$]+$</validationRegex>
+        <requiredProperty key="groupId">
         </requiredProperty>
-    	<requiredProperty key="bonitaVersion"></requiredProperty>
-    	<requiredProperty key="language">
-    	   <validationRegex>^java$|^groovy$|^kotlin$</validationRegex>
-    	</requiredProperty>
-    	<requiredProperty key="wrapper"> 
-    	   <defaultValue>true</defaultValue>
-    	</requiredProperty>
+        <requiredProperty key="artifactId">
+            <validationRegex>^[a-zA-Z0-9\-]+$</validationRegex>
+        </requiredProperty>
+        <requiredProperty key="className">
+            <validationRegex>^[a-zA-Z_$][a-zA-Z\d_$]+$</validationRegex>
+        </requiredProperty>
+        <requiredProperty key="bonitaVersion"></requiredProperty>
+        <requiredProperty key="language">
+            <validationRegex>^java$|^groovy$|^kotlin$</validationRegex>
+        </requiredProperty>
+        <requiredProperty key="wrapper">
+            <defaultValue>true</defaultValue>
+        </requiredProperty>
     </requiredProperties>
-    
+
     <fileSets>
         <fileSet filtered="true" packaged="true">
             <directory>src/main/java</directory>
@@ -29,32 +29,32 @@
         <fileSet filtered="true" packaged="true">
             <directory>src/test/java</directory>
         </fileSet>
-        
+
         <fileSet filtered="true" packaged="true">
             <directory>src/main/groovy</directory>
         </fileSet>
         <fileSet filtered="true" packaged="true">
             <directory>src/test/groovy</directory>
         </fileSet>
-        
+
         <fileSet filtered="true" packaged="true">
             <directory>src/main/kotlin</directory>
         </fileSet>
         <fileSet filtered="true" packaged="true">
             <directory>src/test/kotlin</directory>
         </fileSet>
-        
+
         <fileSet filtered="true">
-            <directory>src/main/resources</directory>
-            <excludes>
-            	<exclude>connector.png</exclude>
-            </excludes>
+            <directory>src/main/resources-filtered</directory>
         </fileSet>
         <fileSet>
             <directory>src/main/resources</directory>
-            <includes>
-            	<include>connector.png</include>
-            </includes>
+        </fileSet>
+        <fileSet>
+            <directory>src/script</directory>
+        </fileSet>
+        <fileSet>
+            <directory>src/assembly</directory>
         </fileSet>
         <fileSet>
             <directory>schemas</directory>
@@ -66,12 +66,12 @@
             </includes>
         </fileSet>
         <fileSet filtered="true">
-        	<directory/>
-        	<includes>
-        		<include>groovy-pom.xml</include>
-        		<include>kotlin-pom.xml</include>
-        		<include>assembly.xml</include>
-        	</includes>
+            <directory/>
+            <includes>
+                <include>groovy-pom.xml</include>
+                <include>kotlin-pom.xml</include>
+                <include>assembly.xml</include>
+            </includes>
         </fileSet>
     </fileSets>
 </archetype-descriptor>
