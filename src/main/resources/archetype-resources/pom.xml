@@ -40,12 +40,15 @@
     </properties>
 
     <dependencies>
+        <!-- Bonita -->
         <dependency>
             <artifactId>bonita-common</artifactId>
             <groupId>org.bonitasoft.engine</groupId>
             <version>${bonita.engine.version}</version>
             <scope>provided</scope>
         </dependency>
+
+        <!-- Test -->
         <dependency>
             <artifactId>junit</artifactId>
             <groupId>junit</groupId>
@@ -55,6 +58,7 @@
     </dependencies>
 
     <build>
+        <defaultGoal>package</defaultGoal>
         <resources>
             <resource>
                 <directory>src/main/resources-filtered</directory>

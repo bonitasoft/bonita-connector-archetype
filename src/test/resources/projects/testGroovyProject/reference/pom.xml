@@ -73,6 +73,7 @@
     </dependencies>
 
     <build>
+        <defaultGoal>package</defaultGoal>
         <sourceDirectory>src/main/groovy</sourceDirectory>
         <resources>
             <resource>
