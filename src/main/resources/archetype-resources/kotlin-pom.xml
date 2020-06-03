@@ -28,7 +28,10 @@
         <bonita.engine.version>7.10.0</bonita.engine.version>
 
         <!-- Tests -->
-        <junit.version>4.12</junit.version>
+        <junit-jupiter-engine.version>5.6.2</junit-jupiter-engine.version>
+        <junit-platform-runner.version>1.6.2</junit-platform-runner.version>
+        <assertj-core.version>3.16.1</assertj-core.version>
+        <mockk.version>1.10.0</mockk.version>
 
         <!-- Maven plugins -->
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
@@ -37,7 +40,6 @@
         <maven-assembly-plugin.version>3.1.1</maven-assembly-plugin.version>
         <groovy-maven-plugin.version>2.1.1</groovy-maven-plugin.version>
         <groovy-all.version>2.4.16</groovy-all.version>
-        <git-commit-id-plugin.version>4.0.0</git-commit-id-plugin.version>
         <maven-surefire-plugin.version>3.0.0-M4</maven-surefire-plugin.version>
 
     </properties>
@@ -58,12 +60,35 @@
             <artifactId>kotlin-stdlib</artifactId>
             <version>${kotlin.version}</version>
         </dependency>
-
-        <!-- Test -->
         <dependency>
-            <artifactId>junit</artifactId>
-            <groupId>junit</groupId>
-            <version>${junit.version}</version>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-reflect</artifactId>
+            <version>${kotlin.version}</version>
+        </dependency>
+
+        <!-- Tests -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit-jupiter-engine.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-runner</artifactId>
+            <version>${junit-platform-runner.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>${assertj-core.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.mockk</groupId>
+            <artifactId>mockk</artifactId>
+            <version>${mockk.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
