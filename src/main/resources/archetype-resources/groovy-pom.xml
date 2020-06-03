@@ -23,7 +23,7 @@
         <connector-main-class>${package}.${className}</connector-main-class>
 
         <!-- Bonita -->
-        <bonita.engine.version>7.10.0</bonita.engine.version>
+        <bonita.engine.version>${bonitaVersion}</bonita.engine.version>
         <groovy-all.version>2.4.16</groovy-all.version>
 
         <!-- Test -->
