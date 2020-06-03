@@ -30,6 +30,7 @@
         <junit-platform-runner.version>1.6.2</junit-platform-runner.version>
         <assertj-core.version>3.16.1</assertj-core.version>
         <mockito-core.version>3.3.3</mockito-core.version>
+        <logback-classic.version>1.2.3</logback-classic.version>
 
         <!-- Maven plugins -->
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
@@ -74,6 +75,12 @@
             <groupId>org.mockito</groupId>
             <artifactId>mockito-junit-jupiter</artifactId>
             <version>${mockito-core.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback-classic.version}</version>
             <scope>test</scope>
         </dependency>
 
