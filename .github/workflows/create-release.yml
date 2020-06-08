@@ -1,0 +1,53 @@
+name: Create release
+
+on:
+  push:
+    branches: 
+      - release-* 
+
+jobs:
+  build:
+    name: Generate changelog
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Install Java and Maven
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+      
+      - name: Extract version
+        shell: bash
+        run: echo "##[set-output name=version;]$(echo ${GITHUB_REF#refs/heads/} | sed 's/release-//g')"
+        id: extract_version
+      
+      - name: changelog
+        uses: scottbrenner/generate-changelog-action@master 
+        id: Changelog
+        env:
+          REPO: ${{ github.repository }}
+      
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+        with:
+          tag_name: ${{ steps.extract_version.outputs.version }}
+          release_name: Release ${{ steps.extract_version.outputs.version }}
+          body: |
+            ${{ steps.Changelog.outputs.changelog }}
+          draft: false
+          prerelease: false
+      
+      - name: Release Maven archetype
+        uses: samuelmeuli/action-maven-publish@v1
+        with:
+          gpg_private_key: ${{ secrets.gpg_private_key }}
+          gpg_passphrase: ${{ secrets.gpg_passphrase }}
+          nexus_username: ${{ secrets.ossrh_username }}
+          nexus_password: ${{ secrets.ossrh_password }}
