@@ -40,7 +40,7 @@ class ${className} extends AbstractConnector {
      * - Set the output of the connector execution. If outputs are not set, connector fails.
      */
     @Override
-    def void executeBusinessLogic() throws ConnectorException {
+    void executeBusinessLogic() throws ConnectorException {
         def defaultInput = getInputParameter(DEFAULT_INPUT)
         log.info "$DEFAULT_INPUT : $defaultInput"
         setOutputParameter(DEFAULT_OUTPUT, "$defaultInput - output".toString())
