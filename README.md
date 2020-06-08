@@ -46,7 +46,8 @@ A folder named _[your artifact id]_ is created, with your Bonita connector proje
 
 ### Release this project
 
-A github action is used to perform release : ![Create release](https://github.com/bonitasoft/bonita-connector-archetype/workflows/Create%20release/badge.svg)
+A github action is used to perform release : 
+[![Actions Status](https://github.com/bonitasoft/bonita-connector-archetype/workflows/Create%20release/badge.svg)](https://github.com/bonitasoft/bonita-connector-archetype/actions)
 
 - This action is triggered when a push is performed on a branch 'release-xxx'
 - It generates the changelog since the last release, creates the github tag and release with the changelog as description, and push the release on our nexus repository. 
