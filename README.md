@@ -43,3 +43,19 @@ You'll then have to specify interactively the properties of your project:
 A folder named _[your artifact id]_ is created, with your Bonita connector project, ready to use.
 
 ⚠️ You can avoid the interactive mode by specifying all properties of your project directly in the command line, but by doing that you'll bypass the validation performed on the properties content.
+
+### Release this project
+
+A github action is used to perform release : ![Create release](https://github.com/bonitasoft/bonita-connector-archetype/workflows/Create%20release/badge.svg)
+
+- This action is triggered when a push is performed on a branch 'release-xxx'
+- It generates the changelog since the last release, creates the github tag and release with the changelog as description, and push the release on our nexus repository. 
+
+So, to release a new version of the project, you have to: 
+- Create a branche release-[version] on your local git repository
+- Update the version in the pom.xml (remove the -SNAPSHOT)
+- Push the branch
+
+⚠️ Make sur that the release branch is final before to push it. If you have to update something on the release branch after the push, then you must first:
+- Delete the tag and the release on github
+- Remove the artifact from our nexus repository 
