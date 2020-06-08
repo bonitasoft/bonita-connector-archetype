@@ -19,7 +19,7 @@ class ${className} extends AbstractConnector {
      * - validate that the content of the inputs is coherent with your use case (e.g: validate that a date is / isn't in the past ...)
      */
     @Override
-    def void validateInputParameters() throws ConnectorValidationException {
+    void validateInputParameters() throws ConnectorValidationException {
         checkMandatoryStringInput(DEFAULT_INPUT)
     }
     
@@ -50,11 +50,11 @@ class ${className} extends AbstractConnector {
      * [Optional] Open a connection to remote server
      */
     @Override
-    def void connect() throws ConnectorException{}
+    void connect() throws ConnectorException{}
 
     /**
      * [Optional] Close connection to remote server
      */
     @Override
-    def void disconnect() throws ConnectorException{}
+    void disconnect() throws ConnectorException{}
 }
