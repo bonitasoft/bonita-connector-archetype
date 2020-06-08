@@ -19,7 +19,7 @@ class MyGroovyConnector extends AbstractConnector {
      * - validate that the content of the inputs is coherent with your use case (e.g: validate that a date is / isn't in the past ...)
      */
     @Override
-    def void validateInputParameters() throws ConnectorValidationException {
+    void validateInputParameters() throws ConnectorValidationException {
         checkMandatoryStringInput(DEFAULT_INPUT)
     }
     
@@ -40,7 +40,7 @@ class MyGroovyConnector extends AbstractConnector {
      * - Set the output of the connector execution. If outputs are not set, connector fails.
      */
     @Override
-    def void executeBusinessLogic() throws ConnectorException {
+    void executeBusinessLogic() throws ConnectorException {
         def defaultInput = getInputParameter(DEFAULT_INPUT)
         log.info "$DEFAULT_INPUT : $defaultInput"
         setOutputParameter(DEFAULT_OUTPUT, "$defaultInput - output".toString())
@@ -50,11 +50,11 @@ class MyGroovyConnector extends AbstractConnector {
      * [Optional] Open a connection to remote server
      */
     @Override
-    def void connect() throws ConnectorException{}
+    void connect() throws ConnectorException{}
 
     /**
      * [Optional] Close connection to remote server
      */
     @Override
-    def void disconnect() throws ConnectorException{}
+    void disconnect() throws ConnectorException{}
 }
