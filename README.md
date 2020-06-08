@@ -1,6 +1,7 @@
 [![Actions Status](https://github.com/bonitasoft/bonita-connector-archetype/workflows/Build/badge.svg)](https://github.com/bonitasoft/bonita-connector-archetype/actions)
 
-[![Release](https://github.com/bonitasoft/bonita-connector-archetype/workflows/Release/badge.svg)](https://github.com/bonitasoft/bonita-connector-archetype/actions)
+[![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/bonitasoft/bonita-connector-archetype?color=orange&include_prereleases)](https://github.com/bonitasoft/bonita-connector-archetype/releases)
+
 
 ## Bonita Connector Archetype
 
