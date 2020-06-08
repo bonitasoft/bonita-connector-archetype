@@ -52,7 +52,7 @@ A github action is used to perform release : ![Create release](https://github.co
 - It generates the changelog since the last release, creates the github tag and release with the changelog as description, and push the release on our nexus repository. 
 
 So, to release a new version of the project, you have to: 
-- Create a branche release-[version] on your local git repository
+- Create a branch release-[version] on your local git repository
 - Update the version in the pom.xml (remove the -SNAPSHOT)
 - Push the branch
 
