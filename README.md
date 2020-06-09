@@ -47,7 +47,7 @@ A folder named _[your artifact id]_ is created, with your Bonita connector proje
 
 ⚠️ You can avoid the interactive mode by specifying all properties of your project directly in the command line, but by doing that you'll bypass the validation performed on the properties content.
 
-## Building the archetype
+### Building the archetype
 The archetype can be installed in your local maven repository.
 
  1. Clone this project
