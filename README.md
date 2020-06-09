@@ -1,6 +1,7 @@
 [![Actions Status](https://github.com/bonitasoft/bonita-connector-archetype/workflows/Build/badge.svg)](https://github.com/bonitasoft/bonita-connector-archetype/actions)
+[![GitHub release](https://img.shields.io/github/v/release/bonitasoft/bonita-connector-archetype?color=blue&label=Release)](https://github.com/bonitasoft/bonita-connector-archetype/releases)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.bonitasoft.archetypes/bonita-connector-archetype/badge.svg?color=orange)](https://maven-badges.herokuapp.com/maven-central/org.bonitasoft.archetypes/bonita-connector-archetype)
 
-[![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/bonitasoft/bonita-connector-archetype?color=orange&include_prereleases)](https://github.com/bonitasoft/bonita-connector-archetype/releases)
 
 
 ## Bonita Connector Archetype
