@@ -1,6 +1,6 @@
 [![Actions Status](https://github.com/bonitasoft/bonita-connector-archetype/workflows/Build/badge.svg)](https://github.com/bonitasoft/bonita-connector-archetype/actions?query=workflow%3ABuild)
 [![GitHub release](https://img.shields.io/github/v/release/bonitasoft/bonita-connector-archetype?color=blue&label=Release)](https://github.com/bonitasoft/bonita-connector-archetype/releases)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.bonitasoft.archetypes/bonita-connector-archetype/badge.svg?color=orange)](https://maven-badges.herokuapp.com/maven-central/org.bonitasoft.archetypes/bonita-connector-archetype)
+[![Maven Central](https://img.shields.io/maven-central/v/org.bonitasoft.archetypes/bonita-connector-archetype.svg?label=Maven%20Central&color=orange)](https://search.maven.org/search?q=g:%22org.bonitasoft.archetypes%22%20AND%20a:%22bonita-connector-archetype%22)
 [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-yellow.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 
 
