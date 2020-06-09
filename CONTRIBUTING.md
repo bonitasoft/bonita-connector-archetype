@@ -1,6 +1,6 @@
 ## Contributing
 
-We are please to receive any kind of contribution (issues, pull requests, suggestions ...).  
+We are pleased to receive any kind of contribution (issues, pull requests, suggestions ...).  
 
 ### Pull requests guidelines
 
