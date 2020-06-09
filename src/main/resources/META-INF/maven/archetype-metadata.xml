@@ -5,8 +5,6 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         name="bonitasoft-connector-archetype">
     <requiredProperties>
-        <requiredProperty key="groupId">
-        </requiredProperty>
         <requiredProperty key="artifactId">
             <validationRegex>^[a-zA-Z0-9\-]+$</validationRegex>
         </requiredProperty>
