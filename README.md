@@ -1,4 +1,4 @@
-[![Actions Status](https://github.com/bonitasoft/bonita-connector-archetype/workflows/Build/badge.svg)](https://github.com/bonitasoft/bonita-connector-archetype/actions)
+[![Actions Status](https://github.com/bonitasoft/bonita-connector-archetype/workflows/Build/badge.svg)](https://github.com/bonitasoft/bonita-connector-archetype/actions?query=workflow%3ABuild)
 [![GitHub release](https://img.shields.io/github/v/release/bonitasoft/bonita-connector-archetype?color=blue&label=Release)](https://github.com/bonitasoft/bonita-connector-archetype/releases)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.bonitasoft.archetypes/bonita-connector-archetype/badge.svg?color=orange)](https://maven-badges.herokuapp.com/maven-central/org.bonitasoft.archetypes/bonita-connector-archetype)
 
@@ -56,7 +56,7 @@ Please sign the contributor license agreement and read our [contribution guideli
 
 A github action is used to perform release : 
 
-[![Actions Status](https://github.com/bonitasoft/bonita-connector-archetype/workflows/Create%20release/badge.svg)](https://github.com/bonitasoft/bonita-connector-archetype/actions)
+[![Actions Status](https://github.com/bonitasoft/bonita-connector-archetype/workflows/Create%20release/badge.svg)](https://github.com/bonitasoft/bonita-connector-archetype/actions?query=workflow%3A"Create+release")
 
 - This action is triggered when a push is performed on a branch 'release-xxx'
 - It generates the changelog since the last release, creates the github tag and release with the changelog as description, and push the release on our nexus repository. 
