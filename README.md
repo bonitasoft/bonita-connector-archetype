@@ -17,7 +17,7 @@ You can find the complete documentation of this archetype with a detailed exampl
  _Make sure that you do not launch the command from an existing maven project._
  
 ```
-mvn archetype:generate -DarchetypeGroupId=org.bonitasoft.archetypes -DarchetypeArtifactId=bonita-connector-archetype -DarchetypeVersion=1.0.0
+mvn archetype:generate -DarchetypeGroupId=org.bonitasoft.archetypes -DarchetypeArtifactId=bonita-connector-archetype
 ```
 
 - **archetypeGroupId:** the group id of the connector archetype.
