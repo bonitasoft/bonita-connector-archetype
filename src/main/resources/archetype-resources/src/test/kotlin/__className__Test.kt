@@ -24,7 +24,7 @@ class ${className}Test {
     @Test
     fun `should throw exception if mandatory input is empty`() {
         // Given
-        connector.setInputParameter(MyKotlinConnector.DEFAULT_INPUT, "")
+        connector.setInputParameter(${className}.DEFAULT_INPUT, "")
 
         // When
         assertThatThrownBy { connector.validateInputParameters() }
@@ -35,7 +35,7 @@ class ${className}Test {
     @Test
     fun `should throw exception if mandatory input is not a string`() {
         // Given
-        connector.setInputParameter(MyKotlinConnector.DEFAULT_INPUT, 38);
+        connector.setInputParameter(${className}.DEFAULT_INPUT, 38);
 
         // When
         assertThatThrownBy { connector.validateInputParameters() }
@@ -46,13 +46,13 @@ class ${className}Test {
     @Test
     fun `should create output for valid input`() {
         // Given
-        connector.setInputParameter(MyKotlinConnector.DEFAULT_INPUT, "valid");
+        connector.setInputParameter(${className}.DEFAULT_INPUT, "valid");
 
         // When
         connector.executeBusinessLogic();
 
         // Then
-        val output = connector.getOutputParameter(MyKotlinConnector.DEFAULT_OUTPUT);
+        val output = connector.getOutputParameter(${className}.DEFAULT_OUTPUT);
         assertThat(output).isEqualTo("valid - output");
     }
 }
