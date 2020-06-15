@@ -1,0 +1,79 @@
+name: Build
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      app_version: ${{steps.get-app-version.outputs.APP_VERSION}}
+    steps:
+    - uses: actions/checkout@v2
+    - name: Cache Maven packages
+      uses: actions/cache@v2
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2
+    - id: get-app-version
+      name: Get archetype version
+      run: echo "::set-output name=APP_VERSION::$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)"
+    - name: Build and test archetype
+      run: ./mvnw -B -ntp clean package
+    - name: Upload archetype for tests
+      uses: actions/upload-artifact@v2
+      with:
+        name: latest-snapshot
+        path: target/bonita-connector-archetype-*
+    - name: Upload archetype pom for tests
+      uses: actions/upload-artifact@v2
+      with:
+        name: latest-snapshot-pom
+        path: pom.xml
+
+  test:
+    strategy:
+      matrix:
+        platform: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.platform }}
+    needs: build
+    steps:
+      - name: Install Java and Maven
+        uses: actions/setup-java@v1
+        with:
+          java-version: 8
+      - name: Download latest archetype snapshot
+        uses: actions/download-artifact@v2
+        with:
+          name: latest-snapshot
+      - name: Download archetype pom
+        uses: actions/download-artifact@v2
+        with:
+          name: latest-snapshot-pom
+      - name: Display structure of downloaded files
+        run: ls -R
+      - name: Install latest archetype in local repo
+        shell: bash
+        run: mvn -B -ntp install:install-file -Dfile=bonita-connector-archetype-${{needs.build.outputs.app_version}}.jar -DpomFile=pom.xml && rm pom.xml
+      - name: Generate project and build it
+        shell: bash
+        run: >-
+            mvn -B -ntp archetype:generate
+            -DarchetypeGroupId=org.bonitasoft.archetypes
+            -DarchetypeArtifactId=bonita-connector-archetype
+            -DarchetypeVersion=${{needs.build.outputs.app_version}}
+            -DgroupId=org.bonita.test.connector
+            -DartifactId=test-connector-java
+            -Dversion=1.0.0-SNAPSHOT
+            -Dpackage=org.bonita.test.connector
+            -DbonitaVersion=7.10.0
+            -DclassName=JavaTestConnector
+            -Dlanguage=java
+      - name: Build and test generated project
+        shell: bash
+        run: mvn -B -ntp verify -f test-connector-java/pom.xml
