@@ -165,32 +165,6 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>com.coderplus.maven.plugins</groupId>
-                <artifactId>copy-rename-maven-plugin</artifactId>
-                <version>1.0</version>
-                <executions>
-                    <execution>
-                        <id>copy-file</id>
-                        <phase>prepare-package</phase>
-                        <goals>
-                            <goal>rename</goal>
-                        </goals>
-                        <configuration>
-                            <fileSets>
-                                <fileSet>
-                                    <sourceFile>target/classes/${artifactId}-definition.xml</sourceFile>
-                                    <destinationFile>target/classes/${artifactId}.def</destinationFile>
-                                </fileSet>
-                                <fileSet>
-                                    <sourceFile>target/classes/${artifactId}-implementation.xml</sourceFile>
-                                    <destinationFile>target/classes/${artifactId}.impl</destinationFile>
-                                </fileSet>
-                            </fileSets>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
             </plugin>

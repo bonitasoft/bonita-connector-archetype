@@ -16,6 +16,10 @@
                 <!-- Only first level files -->
                 <include>*.*</include>
             </includes>
+            <excludes>
+                <exclude>connector-java-test-definition.xml</exclude>
+                <exclude>connector-java-test-implementation.xml</exclude>
+            </excludes>
         </fileSet>
         <fileSet>
             <outputDirectory>classpath</outputDirectory>
@@ -25,6 +29,18 @@
             </includes>
         </fileSet>
     </fileSets>
+    <files>
+        <file>
+            <source>${basedir}/target/classes/connector-java-test-definition.xml</source>
+            <outputDirectory></outputDirectory>
+            <destName>connector-java-test.def</destName>
+        </file>
+        <file>
+            <source>${basedir}/target/classes/connector-java-test-implementation.xml</source>
+            <outputDirectory></outputDirectory>
+            <destName>connector-java-test.impl</destName>
+        </file>
+    </files>
     <dependencySets>
         <dependencySet>
             <unpack>false</unpack>
