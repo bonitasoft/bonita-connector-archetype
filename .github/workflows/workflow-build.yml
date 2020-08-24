@@ -40,6 +40,7 @@ jobs:
     strategy:
       matrix:
         platform: [ubuntu-latest, macos-latest, windows-latest]
+        language: [java, kotlin, groovy]
     runs-on: ${{ matrix.platform }}
     needs: build
     steps:
@@ -68,12 +69,12 @@ jobs:
             -DarchetypeArtifactId=bonita-connector-archetype
             -DarchetypeVersion=${{needs.build.outputs.app_version}}
             -DgroupId=org.bonita.test.connector
-            -DartifactId=test-connector-java
+            -DartifactId=test-connector-${{ matrix.language }}
             -Dversion=1.0.0-SNAPSHOT
             -Dpackage=org.bonita.test.connector
             -DbonitaVersion=7.10.0
-            -DclassName=JavaTestConnector
-            -Dlanguage=java
-      - name: Build and test generated project
+            -DclassName=MyTestConnector
+            -Dlanguage=${{ matrix.language }}
+      - name: Build and test generated ${{ matrix.language }} project
         shell: bash
-        run: mvn -B -ntp verify -f test-connector-java/pom.xml
+        run: mvn -B -ntp verify -f test-connector-${{ matrix.language }}/pom.xml
