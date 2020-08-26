@@ -17,7 +17,7 @@
 
         <!-- Connector -->
         <connector-definition-id>${project.artifactId}</connector-definition-id>
-        <connector-definition-version>1.0</connector-definition-version>
+        <connector-definition-version>1.0.0</connector-definition-version>
         <connector-impl-id>${connector-definition-id}-impl</connector-impl-id>
         <connector-impl-version>${project.version}</connector-impl-version>
         <connector-main-class>${package}.${className}</connector-main-class>
