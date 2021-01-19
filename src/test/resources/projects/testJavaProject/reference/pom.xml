@@ -26,19 +26,19 @@
         <bonita.engine.version>7.10.0</bonita.engine.version>
 
         <!-- Tests -->
-        <junit-jupiter-engine.version>5.6.2</junit-jupiter-engine.version>
-        <junit-platform-runner.version>1.6.2</junit-platform-runner.version>
-        <assertj-core.version>3.16.1</assertj-core.version>
-        <mockito-core.version>3.3.3</mockito-core.version>
+        <junit-jupiter-engine.version>5.7.0</junit-jupiter-engine.version>
+        <junit-platform.version>1.7.0</junit-platform.version>
+        <assertj-core.version>3.19.0</assertj-core.version>
+        <mockito-core.version>3.7.7</mockito-core.version>
         <logback-classic.version>1.2.3</logback-classic.version>
 
         <!-- Maven plugins -->
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-        <maven-assembly-plugin.version>3.1.1</maven-assembly-plugin.version>
+        <maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version>
         <groovy-maven-plugin.version>2.1.1</groovy-maven-plugin.version>
-        <groovy-all.version>2.4.16</groovy-all.version>
+        <groovy.version>3.0.7</groovy.version>
         <maven-surefire-plugin.version>3.0.0-M4</maven-surefire-plugin.version>
 
     </properties>
@@ -62,7 +62,13 @@
         <dependency>
             <groupId>org.junit.platform</groupId>
             <artifactId>junit-platform-runner</artifactId>
-            <version>${junit-platform-runner.version}</version>
+            <version>${junit-platform.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-commons</artifactId>
+            <version>${junit-platform.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -123,8 +129,8 @@
                     <dependencies>
                         <dependency>
                             <groupId>org.codehaus.groovy</groupId>
-                            <artifactId>groovy-all</artifactId>
-                            <version>${groovy-all.version}</version>
+                            <artifactId>groovy</artifactId>
+                            <version>${groovy.version}</version>
                         </dependency>
                     </dependencies>
                 </plugin>
@@ -146,7 +152,7 @@
                         <dependency>
                             <groupId>org.junit.platform</groupId>
                             <artifactId>junit-platform-runner</artifactId>
-                            <version>${junit-platform-runner.version}</version>
+                            <version>${junit-platform.version}</version>
                         </dependency>
                     </dependencies>
                 </plugin>

@@ -10,7 +10,9 @@
 
     <properties>
         <!-- Maven -->
-        <java.version>1.8</java.version>
+        <java.version>#if( $bonitaVersion.matches('7.(1[3-9]|[2-9][0-9]).*') || $bonitaVersion.matches('[8-99].[0-9]+.*') )
+11#else
+1.8#end</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.build.timestamp.format>yyyy.MM.dd-hh.mm</maven.build.timestamp.format>
@@ -24,7 +26,7 @@
 
         <!-- Bonita -->
         <bonita.engine.version>${bonitaVersion}</bonita.engine.version>
-        <groovy-all.version>2.4.16</groovy-all.version>
+        <groovy-all.version>2.4.21</groovy-all.version>
 
         <!-- Test -->
         <spock-core.version>1.3-groovy-2.4</spock-core.version>
@@ -34,10 +36,10 @@
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-        <maven-assembly-plugin.version>3.1.1</maven-assembly-plugin.version>
+        <maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version>
         <groovy-maven-plugin.version>2.1.1</groovy-maven-plugin.version>
-        <groovy-eclipse-compiler.version>3.6.0-01</groovy-eclipse-compiler.version>
-        <groovy-eclipse-batch.version>2.4.16-03</groovy-eclipse-batch.version>
+        <groovy-eclipse-compiler.version>3.6.0-03</groovy-eclipse-compiler.version>
+        <groovy-eclipse-batch.version>2.4.21-01</groovy-eclipse-batch.version>
 
     </properties>
 

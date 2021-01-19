@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<implementation:connectorImplementation xmlns:implementation="http://www.bonitasoft.org/ns/connector/implementation/6.0">
+  <implementationId>${connector-impl-id}</implementationId> <!-- Id of the implementation -->
+  <implementationVersion>${connector-impl-version}</implementationVersion> <!-- Version of the implementation -->
+  <definitionId>${connector-definition-id}</definitionId> <!-- Id of the definition implemented -->
+  <definitionVersion>${connector-definition-version}</definitionVersion> <!-- Version of the definition implemented -->
+  <implementationClassname>${connector-main-class}</implementationClassname> <!-- Path to the main implementation class -->
+  <description>Default ${connector-definition-id} implementation</description>
+
+<!-- retrieved from the pom.xml at build time -->
+${connector-dependencies}
+
+</implementation:connectorImplementation>
