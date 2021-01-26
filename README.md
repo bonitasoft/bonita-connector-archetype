@@ -12,6 +12,8 @@ You can find the complete documentation of this archetype with a detailed exampl
 
 ### Setup a connector project using the archetype 
 
+⚠️ **Java 11 is required for Bonita 7.13+**
+
  You can setup a Bonita connector project using the following command, from a terminal: 
  
  _Make sure that you do not launch the command from an existing maven project._
@@ -78,6 +80,6 @@ So, to release a new version of the project, you have to:
 - Update the version in the pom.xml (remove the -SNAPSHOT)
 - Push the branch
 
-⚠️ Make sur that the release branch is final before to push it. If you have to update something on the release branch after the push, then you must first:
+⚠️ Make sure that the release branch is final before to push it. If you have to update something on the release branch after the push, then you must first:
 - Delete the tag and the release on github
 - Remove the artifact from our nexus repository 
