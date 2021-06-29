@@ -24,7 +24,7 @@
         <connector-main-class>com.company.bonitasoft.MyKotlinConnector</connector-main-class>
 
         <!-- Bonita -->
-        <bonita.engine.version>7.10.0</bonita.engine.version>
+        <bonita-runtime.version>7.10.0</bonita-runtime.version>
 
         <!-- Tests -->
         <junit-jupiter-engine.version>5.7.0</junit-jupiter-engine.version>
@@ -36,7 +36,7 @@
         <!-- Maven plugins -->
         <maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version>
         <groovy-maven-plugin.version>2.1.1</groovy-maven-plugin.version>
-        <groovy.version>3.0.7</groovy.version>
+        <groovy.version>3.0.8</groovy.version>
         <maven-surefire-plugin.version>3.0.0-M4</maven-surefire-plugin.version>
 
     </properties>
@@ -47,7 +47,7 @@
         <dependency>
             <artifactId>bonita-common</artifactId>
             <groupId>org.bonitasoft.engine</groupId>
-            <version>${bonita.engine.version}</version>
+            <version>${bonita-runtime.version}</version>
             <scope>provided</scope>
         </dependency>
 
@@ -162,8 +162,8 @@
                     <dependencies>
                         <dependency>
                             <groupId>org.codehaus.groovy</groupId>
-                            <artifactId>groovy</artifactId>
-                            <version>${groovy.version}</version>
+                            <artifactId>groovy-xml</artifactId>
+                            <version>3.0.8</version>
                         </dependency>
                     </dependencies>
                 </plugin>
