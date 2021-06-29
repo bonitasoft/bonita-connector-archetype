@@ -51,16 +51,16 @@
     </properties>
 
 #if( $after713 )    <dependencyManagement>
-    <dependencies>
-        <dependency>
-            <groupId>org.bonitasoft.runtime</groupId>
-            <artifactId>bonita-runtime-bom</artifactId>
-            <version>${bonita-runtime.version}</version>
-            <type>pom</type>
-            <scope>import</scope>
-        </dependency>
-    </dependencies>
-</dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.bonitasoft.runtime</groupId>
+                <artifactId>bonita-runtime-bom</artifactId>
+                <version>${bonita-runtime.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 #end
     <dependencies>

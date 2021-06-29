@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definition:ConnectorDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:definition="http://www.bonitasoft.org/ns/connector/definition/6.1">
+    <id>${connector-definition-id}</id> <!-- Id of the definition -->
+    <version>${connector-definition-version}</version> <!-- Version of the definition -->
+    <icon>connector.png</icon> <!-- The icon used in the Studio for this definition -->
+    <category icon="connector.png" id="Custom"/> <!-- The category of this definition, used in the Studio (e.g: http, script ...) -->
+
+    <!-- Connector inputs -->
+    <input mandatory="true" name="defaultInput" type="java.lang.String"/>
+
+    <!-- Connector outputs -->
+    <output name="defaultOutput" type="java.lang.String"/>
+
+    <!--
+       Pages and widgets to use the connector in the Bonita Studio.
+       - Each widget must be bound to an input
+       - Page titles must be defined in the properties files
+       - Widget labels must be defined in the properties files
+       - Page and widget descriptions can be defined in the properties files (optional)
+    -->
+    <page id="defaultPage">
+        <widget xsi:type="definition:Text" id="defaultInputWidget" inputName="defaultInput"/>
+    </page>
+</definition:ConnectorDefinition>
