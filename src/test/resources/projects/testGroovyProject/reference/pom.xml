@@ -23,7 +23,7 @@
         <connector-main-class>com.company.bonitasoft.MyGroovyConnector</connector-main-class>
 
         <!-- Bonita -->
-        <bonita.engine.version>7.10.0</bonita.engine.version>
+        <bonita-runtime.version>7.10.0</bonita-runtime.version>
         <groovy.version>2.4.21</groovy.version>
 
         <!-- Test -->
@@ -47,7 +47,7 @@
         <dependency>
             <artifactId>bonita-common</artifactId>
             <groupId>org.bonitasoft.engine</groupId>
-            <version>${bonita.engine.version}</version>
+            <version>${bonita-runtime.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -136,11 +136,6 @@
                     <artifactId>groovy-maven-plugin</artifactId>
                     <version>${groovy-maven-plugin.version}</version>
                     <dependencies>
-                        <dependency>
-                            <groupId>org.codehaus.groovy</groupId>
-                            <artifactId>groovy</artifactId>
-                            <version>${groovy.version}</version>
-                        </dependency>
                         <dependency>
                             <groupId>org.codehaus.groovy</groupId>
                             <artifactId>groovy-xml</artifactId>
