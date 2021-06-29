@@ -139,7 +139,7 @@
                         <dependency>
                             <groupId>org.codehaus.groovy</groupId>
                             <artifactId>groovy-xml</artifactId>
-                            <version>${groovy.version}</version>
+                            <version>3.0.8</version>
                         </dependency>
                     </dependencies>
                 </plugin>
