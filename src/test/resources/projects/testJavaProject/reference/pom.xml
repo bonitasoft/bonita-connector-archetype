@@ -23,7 +23,7 @@
         <connector-main-class>com.company.bonitasoft.MyJavaConnector</connector-main-class>
 
         <!-- Bonita -->
-        <bonita.engine.version>7.10.0</bonita.engine.version>
+        <bonita-runtime.version>7.10.0</bonita-runtime.version>
 
         <!-- Tests -->
         <junit-jupiter-engine.version>5.7.0</junit-jupiter-engine.version>
@@ -48,7 +48,7 @@
         <dependency>
             <artifactId>bonita-common</artifactId>
             <groupId>org.bonitasoft.engine</groupId>
-            <version>${bonita.engine.version}</version>
+            <version>${bonita-runtime.version}</version>
             <scope>provided</scope>
         </dependency>
 

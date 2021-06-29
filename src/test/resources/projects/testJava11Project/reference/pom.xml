@@ -23,7 +23,7 @@
         <connector-main-class>com.company.bonitasoft.MyJavaConnector</connector-main-class>
 
         <!-- Bonita -->
-        <bonita.engine.version>7.13.0</bonita.engine.version>
+        <bonita-runtime.version>7.13.0</bonita-runtime.version>
 
         <!-- Tests -->
         <junit-jupiter-engine.version>5.7.0</junit-jupiter-engine.version>
@@ -43,12 +43,23 @@
 
     </properties>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.bonitasoft.runtime</groupId>
+                <artifactId>bonita-runtime-bom</artifactId>
+                <version>${bonita-runtime.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
         <!-- Bonita -->
         <dependency>
             <artifactId>bonita-common</artifactId>
             <groupId>org.bonitasoft.engine</groupId>
-            <version>${bonita.engine.version}</version>
             <scope>provided</scope>
         </dependency>
 
