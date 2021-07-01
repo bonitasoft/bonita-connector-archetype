@@ -11,7 +11,7 @@ import java.util.Map;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class MyJavaConnectorTest {
+class MyJavaConnectorTest {
 
     MyJavaConnector connector;
 
@@ -53,7 +53,7 @@ public class MyJavaConnectorTest {
         parameters.put(MyJavaConnector.DEFAULT_INPUT, "valid");
         connector.setInputParameters(parameters);
         Map<String, Object> outputs = connector.execute();
-        assertThat(outputs.get("defaultOutput")).isEqualTo("valid - output");
+        assertThat(outputs).containsEntry("defaultOutput", "valid - output");
     }
 
 }

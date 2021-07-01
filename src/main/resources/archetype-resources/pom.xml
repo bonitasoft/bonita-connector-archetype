@@ -29,21 +29,19 @@
         <bonita-runtime.version>${bonitaVersion}</bonita-runtime.version>
 
         <!-- Tests -->
-        <junit-jupiter-engine.version>5.7.0</junit-jupiter-engine.version>
-        <junit-platform.version>1.7.0</junit-platform.version>
-        <assertj-core.version>3.19.0</assertj-core.version>
-        <mockito-core.version>3.7.7</mockito-core.version>
+        <junit-jupiter-engine.version>5.7.2</junit-jupiter-engine.version>
+        <assertj-core.version>3.20.2</assertj-core.version>
+        <mockito-core.version>3.11.2</mockito-core.version>
         <logback-classic.version>1.2.3</logback-classic.version>
 
         <!-- Maven plugins -->
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-        <maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version>
-        <groovy-maven-plugin.version>2.1.1</groovy-maven-plugin.version>
-#if( not ( $after713 ) )        <groovy.version>3.0.8</groovy.version>
+#if( not ($after713) )        <maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version>
 #end
-        <maven-surefire-plugin.version>3.0.0-M4</maven-surefire-plugin.version>
+        <groovy-maven-plugin.version>2.1.1</groovy-maven-plugin.version>
+        <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
 
     </properties>
 
@@ -76,18 +74,6 @@
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
             <version>${junit-jupiter-engine.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.platform</groupId>
-            <artifactId>junit-platform-runner</artifactId>
-            <version>${junit-platform.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.platform</groupId>
-            <artifactId>junit-platform-commons</artifactId>
-            <version>${junit-platform.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -125,7 +111,7 @@
         </resources>
         <pluginManagement>
             <plugins>
-                <plugin>
+#if( not ($after713) )                <plugin>
                     <artifactId>maven-assembly-plugin</artifactId>
                     <version>${maven-assembly-plugin.version}</version>
                     <executions>
@@ -141,6 +127,7 @@
                         </execution>
                     </executions>
                 </plugin>
+#end
                 <plugin>
                     <groupId>org.codehaus.gmaven</groupId>
                     <artifactId>groovy-maven-plugin</artifactId>
@@ -162,18 +149,6 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>${maven-surefire-plugin.version}</version>
-                    <configuration>
-                        <enableAssertions>true</enableAssertions>
-                        <forkCount>1</forkCount>
-                        <reuseForks>true</reuseForks>
-                    </configuration>
-                    <dependencies>
-                        <dependency>
-                            <groupId>org.junit.platform</groupId>
-                            <artifactId>junit-platform-runner</artifactId>
-                            <version>${junit-platform.version}</version>
-                        </dependency>
-                    </dependencies>
                 </plugin>
             </plugins>
         </pluginManagement>
