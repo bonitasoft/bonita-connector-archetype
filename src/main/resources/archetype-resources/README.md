@@ -187,19 +187,22 @@ The methods _connect_ and _disconnect_ can be used to open and close a connectio
 
 #### Build a connector project
 
-##### Before 7.13.0 (2021.2)
-
-A connector project is built using Maven, and especially the [maven assembly plugin](https://maven.apache.org/plugins/maven-assembly-plugin/).   
-
-By default, a zip archives is built containing all the definitions and implementations found in the project.
-By importing this archive in a Bonita Studio you will import all the definitions and implementations created in the project
-
 To build the connector project, type the following command at the root of the project : 
 ```
 ./mvnw clean install
 ```
-The built archive can be found in here `target/[artifact id]-[artifact version].zip` after the build.
+A connector project is built using Maven, and especially the [maven assembly plugin](https://maven.apache.org/plugins/maven-assembly-plugin/).
+
+##### Before 7.13.0 (2021.2)
+
+The default build output is:
+*  `target/[artifact id]-[artifact version]-all.zip` : By importing this archive in a Bonita Studio  (pre 2021.2) you will import all the definitions and implementations created in the project.
+*  `target/[artifact id]-[artifact version]-impl.zip` : An archive containing a single implementation that can be installed using the Admin Portal app
 
 ##### Since 7.13.0 (2021.2)
 
-Now that the Bonita project is a Maven project, the assembly is not used anymore. You can just add this connector as dependency in your Bonita project. Either using its Maven coordinates (be careful that the artifact must be published on a remote repository in order to be consumed) or by importing the built archive `target/[artifact id]-[artifact version].jar` using the Studio extension view.
+Now that the Bonita project is a Maven project, the `all` assembly is not used anymore. You can just add this connector as dependency in your Bonita project. Either using its Maven coordinates (be careful that the artifact must be published on a remote repository in order to be consumed) or by importing the built archive `target/[artifact id]-[artifact version].jar` using the Studio extension view.
+
+The default build output is:
+*  `target/[artifact id]-[artifact version].jar` : A java archive that can be imported in a Studio (since 2021.2)
+*  `target/[artifact id]-[artifact version]-impl.zip` : An archive that can be installed using the Admin Portal app

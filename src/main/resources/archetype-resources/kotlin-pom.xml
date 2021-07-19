@@ -142,7 +142,7 @@
                         </execution>
                     </executions>
                 </plugin>
-#if( not ($after713) )                <plugin>
+                <plugin>
                     <artifactId>maven-assembly-plugin</artifactId>
                     <version>${maven-assembly-plugin.version}</version>
                     <executions>
@@ -153,12 +153,11 @@
                             </goals>
                             <configuration>
                                 <descriptorSourceDirectory>${project.basedir}/src/assembly</descriptorSourceDirectory>
-                                <appendAssemblyId>false</appendAssemblyId>
+                                <appendAssemblyId>true</appendAssemblyId>
                             </configuration>
                         </execution>
                     </executions>
                 </plugin>
-#end
                 <plugin>
                     <groupId>org.codehaus.gmaven</groupId>
                     <artifactId>groovy-maven-plugin</artifactId>
