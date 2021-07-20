@@ -136,7 +136,7 @@
                             </goals>
                             <configuration>
                                 <descriptorSourceDirectory>${project.basedir}/src/assembly</descriptorSourceDirectory>
-                                <appendAssemblyId>false</appendAssemblyId>
+                                <appendAssemblyId>true</appendAssemblyId>
                             </configuration>
                         </execution>
                     </executions>

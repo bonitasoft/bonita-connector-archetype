@@ -21,7 +21,7 @@ if (language == "groovy") {
 }
 
 if(bonitaVersion ==~ /7.(1[3-9]|[2-9][0-9]).*/ || bonitaVersion ==~ /[8-99].[0-9]+.*/ ) {
-    removeAssembly(projectPath)
+    removeAllAssembly(projectPath)
 }
 
 
@@ -29,8 +29,8 @@ if(installWrapper) {
     installMavenWrapper(logger, projectPath)
 }
 
-def removeAssembly(Path projectPath) {
-    projectPath.resolve("src/assembly").toFile().deleteDir()
+def removeAllAssembly(Path projectPath) {
+    projectPath.resolve("src/assembly/assembly.xml").toFile().delete()
 }
 
 def installMavenWrapper(Logger logger, Path projectPath) {

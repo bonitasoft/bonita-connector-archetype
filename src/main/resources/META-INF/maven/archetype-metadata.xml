@@ -48,7 +48,7 @@
         <fileSet>
             <directory>src/script</directory>
         </fileSet>
-        <fileSet>
+        <fileSet filtered="true">
             <directory>src/assembly</directory>
         </fileSet>
         <fileSet>

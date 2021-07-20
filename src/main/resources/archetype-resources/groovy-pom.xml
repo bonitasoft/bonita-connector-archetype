@@ -128,7 +128,7 @@
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>${maven-surefire-plugin.version}</version>
                 </plugin>
-#if( not ($after713) )                <plugin>
+                <plugin>
                     <artifactId>maven-assembly-plugin</artifactId>
                     <version>${maven-assembly-plugin.version}</version>
                     <executions>
@@ -139,12 +139,11 @@
                             </goals>
                             <configuration>
                                 <descriptorSourceDirectory>${project.basedir}/src/assembly</descriptorSourceDirectory>
-                                <appendAssemblyId>false</appendAssemblyId>
+                                <appendAssemblyId>true</appendAssemblyId>
                             </configuration>
                         </execution>
                     </executions>
                 </plugin>
-#end
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
@@ -199,7 +198,6 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
             </plugin>
-
         </plugins>
     </build>
 </project>
