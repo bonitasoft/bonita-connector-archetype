@@ -79,6 +79,10 @@ Some widgets can require additional informations. For example, if you want to cr
 </widget>
 ```
 
+### Add multiple definitions
+
+To add a new definition create a `.def` file in the `src/main/resources-filtered/` folder. They will be added to `all` zip archive at build time. It is recommended to use the maven properties for definition id and version.
+
 #### Connector implementation
 
 A _connector implementation_ implements a connector definition. A definition defines a set on inputs / outputs, implementing a definition means use the provided inputs to create the expected outputs.  
@@ -185,12 +189,20 @@ class Connector extends AbstractConnector {
 The methods _validateInputParameters_ and _executeBusinessLogic_ must be implemented, and are called by the Bonita engine when the connector is executed.  
 The methods _connect_ and _disconnect_ can be used to open and close a connection to a remote server.  The life cycle of the connection will then be managed by the Bonita engine.
 
-#### Build a connector project
+### Add multiple implementations
 
-To build the connector project, type the following command at the root of the project : 
+To add a new implementation create a `.impl` file in the `src/main/resources-filtered/` folder. They will be added to `all` zip archive at build time. It is recommended to use the maven properties for definition id and version.
+
+If you want to build a single zip assembly containing a specific implementation (that can be installed on a Bonita runtime using the Admin Portal app), you must create a new assembly file in the `src/assembly` folder. This assembly must use an id that match the implementation id and include the proper `.impl` file. You can use the generated `impl` assembly as an example.
+
+#### Build the project
+
+Build the project by typing the following command at the root of the project:
+ 
 ```
 ./mvnw clean install
 ```
+
 A connector project is built using Maven, and especially the [maven assembly plugin](https://maven.apache.org/plugins/maven-assembly-plugin/).
 
 ##### Before 7.13.0 (2021.2)
