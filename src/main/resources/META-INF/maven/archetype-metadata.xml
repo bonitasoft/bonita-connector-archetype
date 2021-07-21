@@ -54,18 +54,12 @@
         <fileSet>
             <directory>schemas</directory>
         </fileSet>
-        <fileSet>
-            <directory/>
-            <includes>
-                <include>README.md</include>
-            </includes>
-        </fileSet>
         <fileSet filtered="true">
             <directory/>
             <includes>
                 <include>groovy-pom.xml</include>
                 <include>kotlin-pom.xml</include>
-                <include>assembly.xml</include>
+                <include>README.adoc</include>
             </includes>
         </fileSet>
     </fileSets>
