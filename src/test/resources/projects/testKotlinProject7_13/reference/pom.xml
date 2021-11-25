@@ -33,6 +33,7 @@
         <logback-classic.version>1.2.3</logback-classic.version>
 
         <!-- Maven plugins -->
+        <maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version>
         <groovy-maven-plugin.version>2.1.1</groovy-maven-plugin.version>
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
 
