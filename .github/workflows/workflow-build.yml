@@ -13,7 +13,7 @@ jobs:
     outputs:
       app_version: ${{steps.get-app-version.outputs.APP_VERSION}}
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Cache Maven packages
       uses: actions/cache@v2
       with:
@@ -45,9 +45,10 @@ jobs:
     needs: build
     steps:
       - name: Install Java and Maven
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v3
         with:
-          java-version: 8
+          java-version: 11
+          distribution: temurin
       - name: Download latest archetype snapshot
         uses: actions/download-artifact@v2
         with:

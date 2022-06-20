@@ -10,7 +10,7 @@
 
     <properties>
         <!-- Maven -->
-        <java.version>1.8</java.version>
+        <java.version>8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.build.timestamp.format>yyyy.MM.dd-hh.mm</maven.build.timestamp.format>
@@ -26,18 +26,18 @@
         <bonita-runtime.version>7.10.0</bonita-runtime.version>
 
         <!-- Tests -->
-        <junit-jupiter-engine.version>5.7.2</junit-jupiter-engine.version>
-        <assertj-core.version>3.20.2</assertj-core.version>
-        <mockito-core.version>3.11.2</mockito-core.version>
-        <logback-classic.version>1.2.3</logback-classic.version>
+        <junit-jupiter-engine.version>5.8.2</junit-jupiter-engine.version>
+        <assertj-core.version>3.23.1</assertj-core.version>
+        <mockito-core.version>4.6.1</mockito-core.version>
+        <logback-classic.version>1.2.11</logback-classic.version>
 
         <!-- Maven plugins -->
-        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
-        <maven.compiler.source>${java.version}</maven.compiler.source>
-        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
+        <maven.compiler.release>${java.version}</maven.compiler.release>
         <maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version>
         <groovy-maven-plugin.version>2.1.1</groovy-maven-plugin.version>
-        <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
+        <groovy-xml.version>3.0.11</groovy-xml.version>
+        <maven-surefire-plugin.version>3.0.0-M7</maven-surefire-plugin.version>
 
     </properties>
 
@@ -116,7 +116,7 @@
                         <dependency>
                             <groupId>org.codehaus.groovy</groupId>
                             <artifactId>groovy-xml</artifactId>
-                            <version>3.0.8</version>
+                            <version>${groovy-xml.version}</version>
                         </dependency>
                     </dependencies>
                 </plugin>
