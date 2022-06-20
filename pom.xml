@@ -4,7 +4,7 @@
  
   <groupId>org.bonitasoft.archetypes</groupId>
   <artifactId>bonita-connector-archetype</artifactId>
-  <version>1.2.4-SNAPSHOT</version>
+  <version>1.2.5-SNAPSHOT</version>
   <packaging>maven-archetype</packaging>
   
   <name>Bonita Connector Archetype</name>
