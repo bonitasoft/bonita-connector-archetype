@@ -41,7 +41,7 @@ You'll then have to specify interactively the properties of your project:
     - java
     - groovy
     - kotlin
-- **wrapper** _(optional)_: install a [maven wrapper](https://github.com/takari/maven-wrapper). Available values: 
+- **wrapper** _(optional)_: install a [maven wrapper](https://maven.apache.org/wrapper/). Available values: 
     - true _(default)_
     - false
 
