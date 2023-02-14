@@ -21,8 +21,8 @@ jobs:
         key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
         restore-keys: ${{ runner.os }}-m2
     - id: get-app-version
-      name: Get archetype version
-      run: echo "::set-output name=APP_VERSION::$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)"
+      name: Get archetype version      
+      run: echo "APP_VERSION=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)" >> $GITHUB_OUTPUT
     - name: Build and test archetype
       run: ./mvnw -B -ntp clean verify
     - name: Upload archetype for tests
