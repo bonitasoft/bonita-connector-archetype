@@ -2,8 +2,8 @@ name: release build
 
 on:
   push:
-    branches: 
-      - release-* 
+    branches:
+      - release-*
 
 jobs:
   build:
@@ -21,31 +21,27 @@ jobs:
           java-version: 11
           distribution: temurin
           cache: maven
-      
+
       - name: Extract version
         shell: bash
         run: echo "##[set-output name=version;]$(echo ${GITHUB_REF#refs/heads/} | sed 's/release-//g')"
         id: extract_version
-      
+
       - name: changelog
-        uses: scottbrenner/generate-changelog-action@master 
+        uses: scottbrenner/generate-changelog-action@master
         id: Changelog
         env:
           REPO: ${{ github.repository }}
-      
+
       - name: Create Release
         id: create_release
-        uses: actions/create-release@latest
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+        uses: ncipollo/release-action@v1
         with:
-          tag_name: ${{ steps.extract_version.outputs.version }}
-          release_name: Release ${{ steps.extract_version.outputs.version }}
+          tag: ${{ steps.extract_version.outputs.version }}
+          name: Release ${{ steps.extract_version.outputs.version }}
           body: |
             ${{ steps.Changelog.outputs.changelog }}
-          draft: false
-          prerelease: false
-      
+
       - name: Release Maven archetype
         uses: samuelmeuli/action-maven-publish@v1
         with:
