@@ -26,15 +26,14 @@
         <bonita-runtime.version>7.13.0</bonita-runtime.version>
 
         <!-- Test -->
-        <spock-core.version>2.0-groovy-3.0</spock-core.version>
-        <logback-classic.version>1.2.3</logback-classic.version>
+        <spock-core.version>2.3-groovy-3.0</spock-core.version>
+        <logback-classic.version>1.2.12</logback-classic.version>
 
         <!-- Maven plugins -->
-        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
-        <maven.compiler.source>${java.version}</maven.compiler.source>
-        <maven.compiler.target>${java.version}</maven.compiler.target>
-        <maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version>
-        <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
+        <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
+        <maven.compiler.release>${java.version}</maven.compiler.release>
+        <maven-assembly-plugin.version>3.6.0</maven-assembly-plugin.version>
+        <maven-surefire-plugin.version>3.1.2</maven-surefire-plugin.version>
         <groovy-maven-plugin.version>2.1.1</groovy-maven-plugin.version>
         <groovy-eclipse-compiler.version>3.7.0</groovy-eclipse-compiler.version>
         <groovy-eclipse-batch.version>3.0.8-01</groovy-eclipse-batch.version>
@@ -149,7 +148,7 @@
                         <dependency>
                             <groupId>org.codehaus.groovy</groupId>
                             <artifactId>groovy-xml</artifactId>
-                            <version>3.0.8</version>
+                            <version>3.0.19</version>
                         </dependency>
                     </dependencies>
                 </plugin>

@@ -26,18 +26,18 @@
         <bonita-runtime.version>7.13.0</bonita-runtime.version>
 
         <!-- Tests -->
-        <junit-jupiter-engine.version>5.8.2</junit-jupiter-engine.version>
-        <assertj-core.version>3.23.1</assertj-core.version>
-        <mockito-core.version>4.6.1</mockito-core.version>
-        <logback-classic.version>1.2.11</logback-classic.version>
+        <junit-jupiter-engine.version>5.10.0</junit-jupiter-engine.version>
+        <assertj-core.version>3.24.2</assertj-core.version>
+        <mockito-core.version>5.6.0</mockito-core.version>
+        <logback-classic.version>1.2.12</logback-classic.version>
 
         <!-- Maven plugins -->
-        <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
+        <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
         <maven.compiler.release>${java.version}</maven.compiler.release>
-        <maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version>
+        <maven-assembly-plugin.version>3.6.0</maven-assembly-plugin.version>
         <groovy-maven-plugin.version>2.1.1</groovy-maven-plugin.version>
-        <groovy-xml.version>3.0.11</groovy-xml.version>
-        <maven-surefire-plugin.version>3.0.0-M7</maven-surefire-plugin.version>
+        <groovy-xml.version>3.0.19</groovy-xml.version>
+        <maven-surefire-plugin.version>3.1.2</maven-surefire-plugin.version>
 
     </properties>
 
