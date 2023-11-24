@@ -10,9 +10,9 @@
 :sectanchors:
 :linkcss: false
 
-:short-bonita-version: 7.10
-:doc-url: https://documentation.bonitasoft.com/bonita/7.10
-:java-version: 1.8
+:short-bonita-version: 10.0
+:doc-url: https://documentation.bonitasoft.com/bonita/{short-bonita-version}
+:java-version: 17
 = connector-groovy-test
 
 The project **connector-groovy-test** is a Bonita Connector for **Bonita {short-bonita-version}**  **Community** version written in `groovy` language.
@@ -56,7 +56,7 @@ cd connector-groovy-test/
 mvn package
 ----
 
-The build should produce a zip archive under the `target/` folder named `connector-groovy-test-1.0.0-all.zip`
+The build should produce a jar archive under the `target/` folder named `connector-groovy-test-1.0.0.jar`
 
 _**TODO**_: Here again you should state what actually happens when the code above gets
 executed.
@@ -67,7 +67,7 @@ For more details about Apache Maven, please refer to the https://maven.apache.or
 
 _**TODO**_: In case there's some step you have to take that publishes this project to a server, this is the right time to state it.
 
-Take the built artifact `connector-groovy-test-1.0.0-all.zip` and import it to your Bonita Studio.
+{doc-url}/managing-extension-studio[Install the connector in your Bonita project using the Studio, window = "_blank"].
 
 == Contributing
 
