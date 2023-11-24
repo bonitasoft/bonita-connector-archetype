@@ -11,7 +11,8 @@
 
     <properties>
         <!-- Maven -->
-        <kotlin.version>1.5.20</kotlin.version>
+        <kotlin.version>1.9.21</kotlin.version>
+        <kotlin.compiler.jvmTarget>11</kotlin.compiler.jvmTarget>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.build.timestamp.format>yyyy.MM.dd-hh.mm</maven.build.timestamp.format>
@@ -27,15 +28,15 @@
         <bonita-runtime.version>7.13.0</bonita-runtime.version>
 
         <!-- Tests -->
-        <junit-jupiter-engine.version>5.7.2</junit-jupiter-engine.version>
-        <assertj-core.version>3.20.2</assertj-core.version>
-        <mockk.version>1.12.0</mockk.version>
-        <logback-classic.version>1.2.3</logback-classic.version>
+        <junit-jupiter-engine.version>5.10.1</junit-jupiter-engine.version>
+        <assertj-core.version>3.24.2</assertj-core.version>
+        <mockk.version>1.13.7</mockk.version>
+        <logback-classic.version>1.2.12</logback-classic.version>
 
         <!-- Maven plugins -->
-        <maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version>
+        <maven-assembly-plugin.version>3.6.0</maven-assembly-plugin.version>
         <groovy-maven-plugin.version>2.1.1</groovy-maven-plugin.version>
-        <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
+        <maven-surefire-plugin.version>3.2.2</maven-surefire-plugin.version>
 
     </properties>
 
@@ -87,7 +88,7 @@
         </dependency>
         <dependency>
             <groupId>io.mockk</groupId>
-            <artifactId>mockk</artifactId>
+            <artifactId>mockk-jvm</artifactId>
             <version>${mockk.version}</version>
             <scope>test</scope>
         </dependency>
@@ -160,7 +161,7 @@
                         <dependency>
                             <groupId>org.codehaus.groovy</groupId>
                             <artifactId>groovy-xml</artifactId>
-                            <version>3.0.8</version>
+                            <version>3.0.19</version>
                         </dependency>
                     </dependencies>
                 </plugin>
