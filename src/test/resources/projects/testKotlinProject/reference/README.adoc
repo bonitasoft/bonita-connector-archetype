@@ -12,7 +12,7 @@
 
 :short-bonita-version: 7.10
 :doc-url: https://documentation.bonitasoft.com/bonita/{short-bonita-version}
-:java-version: 1.8
+:java-version: 8
 = connector-kotlin-test
 
 The project **connector-kotlin-test** is a Bonita Connector for **Bonita {short-bonita-version}**  **Community** version written in `kotlin` language.

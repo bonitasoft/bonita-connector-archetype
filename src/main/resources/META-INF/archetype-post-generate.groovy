@@ -144,8 +144,8 @@ project.parent = parent
 }
 
 // Remove plugins from pluginManagement section
-project.build.pluginManagement.removeIf{ p -> p.artifactId == 'maven-compiler-plugin'}
-project.build.pluginManagement.removeIf{ p -> p.artifactId == 'maven-surefire-plugin'}
+project.build.pluginManagement.plugins.removeIf{ p -> p.artifactId == 'maven-compiler-plugin'}
+project.build.pluginManagement.plugins.removeIf{ p -> p.artifactId == 'maven-surefire-plugin'}
 
 // Remove version for manage assembly plugin
 removeProperty(project, 'maven-assembly-plugin.version')
