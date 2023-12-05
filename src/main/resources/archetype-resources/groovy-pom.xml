@@ -50,7 +50,7 @@
 3.9.0#else
 3.7.0#end</groovy-eclipse-compiler.version>
         <groovy-eclipse-batch.version>#if( $after10 )
-3.0.9-03#elseif ( $after713)
+3.0.19-02#elseif ( $after713)
 3.0.8-01#else
 2.4.21-01#end</groovy-eclipse-batch.version>
 
