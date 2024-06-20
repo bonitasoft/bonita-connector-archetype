@@ -13,7 +13,7 @@ jobs:
     outputs:
       app_version: ${{steps.get-app-version.outputs.APP_VERSION}}
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Cache Maven packages
       uses: actions/cache@v2
       with:
@@ -26,12 +26,12 @@ jobs:
     - name: Build and test archetype
       run: ./mvnw -B -ntp clean verify
     - name: Upload archetype for tests
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: latest-snapshot
         path: target/bonita-connector-archetype-*
     - name: Upload archetype pom for tests
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: latest-snapshot-pom
         path: pom.xml
@@ -39,22 +39,22 @@ jobs:
   test:
     strategy:
       matrix:
-        platform: [ubuntu-latest, macos-latest, windows-latest]
+        platform: [ubuntu-22.04, macos-12, windows-2022]
         language: [java, kotlin, groovy]
     runs-on: ${{ matrix.platform }}
     needs: build
     steps:
       - name: Install Java and Maven
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           java-version: 17
           distribution: temurin
       - name: Download latest archetype snapshot
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
           name: latest-snapshot
       - name: Download archetype pom
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
           name: latest-snapshot-pom
       - name: Display structure of downloaded files

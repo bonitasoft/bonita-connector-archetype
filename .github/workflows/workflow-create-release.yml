@@ -15,23 +15,30 @@ jobs:
         with:
           fetch-depth: 0
 
+      - uses: Keeper-Security/ksm-action@v1
+        with:
+          keeper-secret-config: ${{ secrets.KSM_CONFIG }}
+          secrets: |
+            ${{ vars.KEEPER_OSSRH_RECORD_ID }}/field/login > env:MAVEN_USERNAME
+            ${{ vars.KEEPER_OSSRH_RECORD_ID }}/field/password > env:MAVEN_PASSWORD
+            ${{ vars.KEEPER_GPG_ARTIFACT_SIGNING_RECORD_ID }}/custom_field/gpg-private-key > env:GPG_PRIVATE_KEY
+            ${{ vars.KEEPER_GPG_ARTIFACT_SIGNING_RECORD_ID }}/field/password > env:MAVEN_GPG_PASSPHRASE
+
       - name: Install Java and Maven
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           java-version: 17
-          distribution: temurin
-          cache: maven
+          distribution: 'temurin'
+          server-id: 'ossrh'
+          server-username: MAVEN_USERNAME
+          server-password: MAVEN_PASSWORD
+          gpg-private-key: ${{ env.GPG_PRIVATE_KEY }}
+          gpg-passphrase: MAVEN_GPG_PASSPHRASE
 
       - name: Extract version
         shell: bash
         run: echo "##[set-output name=version;]$(echo ${GITHUB_REF#refs/heads/} | sed 's/release-//g')"
         id: extract_version
-
-      - name: changelog
-        uses: scottbrenner/generate-changelog-action@master
-        id: Changelog
-        env:
-          REPO: ${{ github.repository }}
 
       - name: Create Release
         id: create_release
@@ -39,13 +46,8 @@ jobs:
         with:
           tag: ${{ steps.extract_version.outputs.version }}
           name: Release ${{ steps.extract_version.outputs.version }}
-          body: |
-            ${{ steps.Changelog.outputs.changelog }}
+          generateReleaseNotes: true
 
       - name: Release Maven archetype
-        uses: samuelmeuli/action-maven-publish@v1
-        with:
-          gpg_private_key: ${{ secrets.gpg_private_key }}
-          gpg_passphrase: ${{ secrets.gpg_passphrase }}
-          nexus_username: ${{ secrets.ossrh_username }}
-          nexus_password: ${{ secrets.ossrh_password }}
+        run: ./mvnw -B -ntp deploy -Pdeploy -DskipTests
+  
