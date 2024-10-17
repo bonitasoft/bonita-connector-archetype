@@ -9,7 +9,7 @@ on:
 jobs:
 
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     outputs:
       app_version: ${{steps.get-app-version.outputs.APP_VERSION}}
     steps:
@@ -39,7 +39,7 @@ jobs:
   test:
     strategy:
       matrix:
-        platform: [ubuntu-22.04, macos-12, windows-2022]
+        platform: [ubuntu-22.04, macos-14, windows-2022]
         language: [java, kotlin, groovy]
     runs-on: ${{ matrix.platform }}
     needs: build
