@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     name: Release pipeline
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -18,9 +18,7 @@ jobs:
       - uses: Keeper-Security/ksm-action@v1
         with:
           keeper-secret-config: ${{ secrets.KSM_CONFIG }}
-          secrets: |
-            ${{ vars.KEEPER_OSSRH_RECORD_ID }}/field/login > env:MAVEN_USERNAME
-            ${{ vars.KEEPER_OSSRH_RECORD_ID }}/field/password > env:MAVEN_PASSWORD
+          secrets: |            
             ${{ vars.KEEPER_GPG_ARTIFACT_SIGNING_RECORD_ID }}/custom_field/gpg-private-key > env:GPG_PRIVATE_KEY
             ${{ vars.KEEPER_GPG_ARTIFACT_SIGNING_RECORD_ID }}/field/password > env:MAVEN_GPG_PASSPHRASE
 
@@ -28,10 +26,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           java-version: 17
-          distribution: 'temurin'
-          server-id: 'ossrh'
-          server-username: MAVEN_USERNAME
-          server-password: MAVEN_PASSWORD
+          distribution: temurin
           gpg-private-key: ${{ env.GPG_PRIVATE_KEY }}
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
 
@@ -50,4 +45,3 @@ jobs:
 
       - name: Release Maven archetype
         run: ./mvnw -B -ntp deploy -Pdeploy -DskipTests
-  

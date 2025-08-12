@@ -80,6 +80,4 @@ So, to release a new version of the project, you have to:
 - Update the version in the pom.xml (remove the -SNAPSHOT)
 - Push the branch
 
-⚠️ Make sure that the release branch is final before to push it. If you have to update something on the release branch after the push, then you must first:
-- Delete the tag and the release on github
-- Remove the artifact from our nexus repository 
+⚠️ Make sure that the release branch is final before to push it.
