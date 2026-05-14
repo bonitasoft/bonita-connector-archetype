@@ -26,7 +26,7 @@
 :linkcss: false
 
 :short-bonita-version: ${shortBonitaVersion}
-:doc-url: https://documentation.bonitasoft.com/bonita/{short-bonita-version}
+:doc-url: https://documentation.ofelia.com/bonita/{short-bonita-version}
 :java-version:#if( $after10 ) 17#elseif ( $after713 ) 11#else 8#end
 
 = ${artifactId}

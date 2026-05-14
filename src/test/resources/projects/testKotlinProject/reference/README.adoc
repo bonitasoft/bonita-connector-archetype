@@ -11,7 +11,7 @@
 :linkcss: false
 
 :short-bonita-version: 7.10
-:doc-url: https://documentation.bonitasoft.com/bonita/{short-bonita-version}
+:doc-url: https://documentation.ofelia.com/bonita/{short-bonita-version}
 :java-version: 8
 = connector-kotlin-test
 

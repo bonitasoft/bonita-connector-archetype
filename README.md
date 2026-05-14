@@ -8,7 +8,7 @@
 ## Bonita Connector Archetype
 
 This project contains a maven archetype, which allow to easily setup a Bonita connector project.  
-You can find the complete documentation of this archetype with a detailed example on our [documentation website](https://documentation.bonitasoft.com/bonita/7.11/connector-archetype)
+You can find the complete documentation of this archetype with a detailed example on our [documentation website](https://documentation.ofelia.com/bonita/7.11/connector-archetype)
 
 ### Setup a connector project using the archetype 
 
