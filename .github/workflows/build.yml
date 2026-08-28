@@ -1,0 +1,120 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - master
+      - support/*
+    paths-ignore:
+      - '.github/**'
+      - '!.github/workflows/build.yml'
+      - '**/*.md'
+  pull_request:
+    branches:
+      - master
+      - support/*
+    paths-ignore:
+      - '.github/**'
+      - '!.github/workflows/build.yml'
+      - '**/*.md'
+
+jobs:
+
+  build:
+    runs-on: ubuntu-24.04
+    outputs:
+      app_version: ${{steps.get-app-version.outputs.APP_VERSION}}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Setup Java
+        uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961 # v5.7.0
+        with:
+          java-version: 17
+          distribution: temurin
+          cache: maven
+
+      - name: Get archetype version
+        id: get-app-version
+        run: |
+          extracted_version=$(./mvnw -q -DforceStdout --non-recursive help:evaluate -Dexpression=project.version)
+          echo "APP_VERSION=$extracted_version" >> $GITHUB_OUTPUT
+
+      - name: Build and test archetype
+        run: ./mvnw -B -ntp verify
+
+      - name: Upload archetype for tests
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: latest-snapshot
+          path: target/bonita-connector-archetype-*
+          overwrite: true
+          retention-days: 1
+
+      - name: Upload archetype pom for tests
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: latest-snapshot-pom
+          path: pom.xml
+          overwrite: true
+          retention-days: 1
+
+  test:
+    needs: build
+    strategy:
+      matrix:
+        platform: [ ubuntu-24.04, macos-15, windows-2025 ]
+        language: [ java, kotlin, groovy ]
+    runs-on: ${{ matrix.platform }}
+    steps:
+      - name: Download latest archetype snapshot
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: latest-snapshot
+
+      - name: Download archetype pom
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: latest-snapshot-pom
+
+      - name: Display structure of downloaded files
+        run: ls -R
+
+      - name: Setup Java
+        uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961 # v5.7.0
+        with:
+          java-version: 17
+          distribution: temurin
+
+      - name: Cache Maven repository
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-${{ matrix.language }}-m2-${{needs.build.outputs.app_version}}
+          restore-keys: ${{ runner.os }}-${{ matrix.language }}-m2-
+
+      - name: Install latest archetype in local repo
+        shell: bash
+        run: |
+          mvn -B -ntp install:install-file -Dfile=bonita-connector-archetype-${{needs.build.outputs.app_version}}.jar -DpomFile=pom.xml
+          rm pom.xml
+
+      - name: Generate project and build it
+        shell: bash
+        run: >-
+          mvn -B -ntp archetype:generate
+          -DarchetypeGroupId=org.bonitasoft.archetypes
+          -DarchetypeArtifactId=bonita-connector-archetype
+          -DarchetypeVersion=${{needs.build.outputs.app_version}}
+          -DgroupId=org.bonita.test.connector
+          -DartifactId=test-connector-${{ matrix.language }}
+          -Dversion=1.0.0-SNAPSHOT
+          -Dpackage=org.bonita.test.connector
+          -DbonitaVersion=7.10.0
+          -DclassName=MyTestConnector
+          -Dlanguage=${{ matrix.language }}
+
+      - name: Build and test generated ${{ matrix.language }} project
+        shell: bash
+        run: mvn -B -ntp verify -f test-connector-${{ matrix.language }}/pom.xml

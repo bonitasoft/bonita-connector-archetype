@@ -1,6 +1,6 @@
-[![Actions Status](https://github.com/bonitasoft/bonita-connector-archetype/workflows/Build/badge.svg)](https://github.com/bonitasoft/bonita-connector-archetype/actions?query=workflow%3ABuild)
+[![Actions Status](https://github.com/bonitasoft/bonita-connector-archetype/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/bonitasoft/bonita-connector-archetype/actions/workflows/build.yml)
 [![GitHub release](https://img.shields.io/github/v/release/bonitasoft/bonita-connector-archetype?color=blue&label=Release)](https://github.com/bonitasoft/bonita-connector-archetype/releases)
-[![Maven Central](https://img.shields.io/maven-central/v/org.bonitasoft.archetypes/bonita-connector-archetype.svg?label=Maven%20Central&color=orange)](https://search.maven.org/search?q=g:%22org.bonitasoft.archetypes%22%20AND%20a:%22bonita-connector-archetype%22)
+[![Maven Central](https://img.shields.io/maven-central/v/org.bonitasoft.archetypes/bonita-connector-archetype?label=Maven%20Central&color=orange)](https://central.sonatype.com/artifact/org.bonitasoft.archetypes/bonita-connector-archetype)
 [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-yellow.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 
 
@@ -68,16 +68,19 @@ Please sign the contributor license agreement and read our [contribution guideli
 
 ### Release this project
 
-A github action is used to perform release : 
+The GitHub Action [Release](https://github.com/bonitasoft/bonita-connector-archetype/actions/workflows/release.yml) is used to perform a release:
 
-[![Actions Status](https://github.com/bonitasoft/bonita-connector-archetype/workflows/Create%20release/badge.svg)](https://github.com/bonitasoft/bonita-connector-archetype/actions?query=workflow%3A"Create+release")
+- This action is triggered manually, from the Actions tab
+- It sets the release version, tags it, publishes the archetype to the Maven Central Portal, bumps to the next development version, pushes the branch and the tag, then creates the GitHub release with generated notes
 
-- This action is triggered when a push is performed on a branch 'release-xxx'
-- It generates the changelog since the last release, creates the github tag and release with the changelog as description, and push the release on our nexus repository. 
+So, to release a new version of the project, you have to:
+- Open the [Release workflow](https://github.com/bonitasoft/bonita-connector-archetype/actions/workflows/release.yml) and click *Run workflow*
+- Fill in the version to release (e.g. `1.3.1`) and the next development version (e.g. `1.3.2-SNAPSHOT`)
+- Leave the `branch` input to `master`, unless you want to release from another branch
+- Leave the `auto-publish` input unchecked to review the deployment before publishing it, or check it to publish to Maven Central automatically
 
-So, to release a new version of the project, you have to: 
-- Create a branch release-[version] on your local git repository
-- Update the version in the pom.xml (remove the -SNAPSHOT)
-- Push the branch
+#### ⚠️ Important notes
 
-⚠️ Make sure that the release branch is final before to push it.
+- **Branch**: the release is performed on the branch given by the `branch` input, not on the branch selected in the *Run workflow* dropdown (which only selects the version of the workflow file to run). That branch is the one checked out and built, tagged with the released version, and updated with the next development version.
+- **Publication**: by default the deployment is not published automatically (`auto-publish` unchecked, i.e. `-DautoPublish=false` for the `central-publishing-maven-plugin`). Once the workflow succeeds, the deployment must be reviewed and published from the [Maven Central Portal](https://central.sonatype.com/publishing/deployments). With `auto-publish` checked, it is published as soon as it passes the Central Portal validation, and a published version can no longer be removed.
+- **Push**: nothing is pushed until the deployment succeeded. The release commit, the next development version commit and the tag are all pushed in one go, near the end of the workflow. A run that fails before that step leaves the branch and the tags untouched, but the deployment may already exist in the Maven Central Portal.
