@@ -1,0 +1,32 @@
+name: Commit Check
+
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - reopened
+      - synchronize
+
+jobs:
+  commit-check:
+    runs-on: ubuntu-24.04
+    permissions: # use permissions because use of pr-comments
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0  # Required for merge-base checks
+      - uses: commit-check/commit-check-action@f803083a5bf0867b60d77189bc3810fce2f0e314 # v2.15.0
+        env:
+          CCHK_IGNORE_AUTHORS: "dependabot[bot]"
+          CCHK_SUBJECT_MAX_LENGTH: 120
+        with:
+          message: true
+          branch: false
+          author-name: false
+          author-email: false
+          job-summary: true
+          pr-comments: true
+          pr-title: true

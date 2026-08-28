@@ -1,0 +1,97 @@
+name: Release
+
+run-name: 'Release ${{ github.event.inputs.version }} (next: ${{ github.event.inputs.next-development-version }})'
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'version to release (e.g. 1.0.0)'
+        type: string
+        required: true
+      next-development-version:
+        description: 'next development version (e.g. 1.0.1-SNAPSHOT)'
+        type: string
+        required: true
+      branch:
+        description: 'branch to release from, and to push the tag and the next development version to (default: master)'
+        type: string
+        required: false
+        default: 'master'
+      auto-publish:
+        description: 'publish the deployment to Maven Central automatically once validated, instead of publishing it manually from the Central Portal'
+        type: boolean
+        required: false
+        default: false
+
+concurrency:
+  group: release-${{ inputs.branch }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    env:
+      VERSION: ${{ inputs.version }}
+      NEXT_VERSION: ${{ inputs.next-development-version }}
+      BRANCH: ${{ inputs.branch }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ inputs.branch }}
+          token: ${{ secrets.BONITA_CI_PAT }}
+          fetch-tags: true
+
+      - name: Setup Java
+        uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961 # v5.7.0
+        with:
+          java-version: 17
+          distribution: temurin
+          cache: maven
+
+      - name: Setup Maven settings and artifact signing
+        uses: bonitasoft/maven-settings-action@v2
+        with:
+          keeper-secret-config: ${{ secrets.KSM_CONFIG }}
+
+      - name: Update version
+        run: |
+          ./mvnw -B -ntp versions:set -DnewVersion="$VERSION" -DgenerateBackupPoms=false
+          jq --arg v "$VERSION" '.version = $v' package.json > package.json.tmp && mv package.json.tmp package.json
+
+      - name: Setup Git Settings
+        uses: bonitasoft/git-setup-action@v1
+        with:
+          keeper-secret-config: ${{ secrets.KSM_CONFIG }}
+
+      - name: Commit and Tag release version
+        run: |
+          git diff --quiet || git commit -a -m "chore(release): create release $VERSION"
+          git tag -a "$VERSION" -m "Release $VERSION"
+
+      - name: Release Maven archetype
+        run: ./mvnw -B -ntp deploy -Pdeploy -DskipTests -DautoPublish=${{ inputs.auto-publish }}
+
+      - name: Update next development version
+        run: |
+          ./mvnw -B -ntp versions:set -DnewVersion="$NEXT_VERSION" -DgenerateBackupPoms=false
+          jq --arg v "$NEXT_VERSION" '.version = $v' package.json > package.json.tmp && mv package.json.tmp package.json
+
+      - name: Commit next development version
+        run: |
+          git diff --quiet || git commit -a -m "chore(release): bump next development version to $NEXT_VERSION"
+
+      - name: Push tag and ${{ env.BRANCH }} branch
+        run: git push --atomic origin "HEAD:$BRANCH" "refs/tags/$VERSION"
+
+      - name: Create Release
+        env:
+          GH_TOKEN: ${{ secrets.BONITA_CI_PAT }}
+        run: >
+          gh release create "$VERSION"
+          --title "Release $VERSION"
+          --generate-notes
+          --repo ${{ github.repository }}
