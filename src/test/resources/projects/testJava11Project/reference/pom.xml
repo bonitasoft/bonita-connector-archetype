@@ -27,7 +27,7 @@
 
         <!-- Tests -->
         <junit-jupiter-engine.version>5.10.0</junit-jupiter-engine.version>
-        <assertj-core.version>3.24.2</assertj-core.version>
+        <assertj-core.version>3.27.7</assertj-core.version>
         <mockito-core.version>5.8.0</mockito-core.version>
         <logback-classic.version>1.2.13</logback-classic.version>
 
