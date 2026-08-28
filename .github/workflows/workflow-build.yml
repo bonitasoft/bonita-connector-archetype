@@ -13,7 +13,7 @@ jobs:
     outputs:
       app_version: ${{steps.get-app-version.outputs.APP_VERSION}}
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
     - name: Cache Maven packages
       uses: actions/cache@v4
       with:
