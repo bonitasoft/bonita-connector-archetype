@@ -21,4 +21,10 @@ This is enforced on every pull request by the `Commit Check` workflow, and we re
 Ensure that your contribution is correctly tested: 
 
  - Any update on the generated project must be tested through the generated unit tests
- - Any update on the archetype must be tested through the integration test suite (*src/test/resources/projects*)
+ - Any update on the archetype must be tested through the integration test suite (*src/test/resources/projects*), run by `./mvnw install`
+ - Any update on the post-generation script (*archetype-post-generate.groovy*) must be tested through the script integration tests: `./mvnw -PIT install` runs the whole build plus every *IT.groovy* suite under *src/test/resources-filtered*. After a first `./mvnw install`, the script suites can also be run alone with `./mvnw groovy:execute -Dsource=target/test-classes/runScriptITs.groovy -Dscope=test`, or a single one with e.g. `-Dsource=target/test-classes/testJavaSubModuleProject/IT.groovy`
+
+The script integration tests spawn the `mvn` found on your `PATH`, which must be Maven 3.9.6 or above (enforced by the `org.bonitasoft:bonita-project` parent resolved by the Bonita-project-shaped suite).
+
+<!-- TODO Bonita 12.0 GA: remove this note (grep 'TODO Bonita 12.0 GA' for all the sites to update) -->
+Note: until Bonita 12.0 is released on Maven Central, the integration tests build or resolve the generated projects against the `12.0-SNAPSHOT` Bonita runtime (including the `org.bonitasoft:bonita-project` parent for the Bonita-project-shaped suite), which requires access to the Bonitasoft Artifactory snapshot repositories in your Maven `settings.xml` (CI gets it through `bonitasoft/maven-settings-action`). Use `-DskipTests` to skip them.

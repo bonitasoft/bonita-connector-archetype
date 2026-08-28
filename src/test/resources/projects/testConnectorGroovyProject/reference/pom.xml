@@ -3,10 +3,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>${groupId}</groupId>
-    <artifactId>${artifactId}</artifactId>
-    <version>${version}</version>
-    <name>${artifactId}</name>
+    <groupId>com.company.bonitasoft</groupId>
+    <artifactId>connector-groovy-test</artifactId>
+    <version>1.0.0</version>
+    <name>connector-groovy-test</name>
     <packaging>jar</packaging>
 
     <properties>
@@ -21,10 +21,10 @@
         <connector-definition-version>1.0.0</connector-definition-version>
         <connector-impl-id>${connector-definition-id}-impl</connector-impl-id>
         <connector-impl-version>${project.version}</connector-impl-version>
-        <connector-main-class>${package}.${className}</connector-main-class>
+        <connector-main-class>com.company.bonitasoft.MyGroovyConnector</connector-main-class>
 
         <!-- Bonita -->
-        <bonita-runtime.version>${bonitaVersion}</bonita-runtime.version>
+        <bonita-runtime.version>12.0-SNAPSHOT</bonita-runtime.version>
 
         <!-- Test -->
         <spock-core.version>2.4-groovy-4.0</spock-core.version>
