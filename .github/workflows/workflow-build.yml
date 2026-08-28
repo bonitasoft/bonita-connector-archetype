@@ -50,11 +50,11 @@ jobs:
           java-version: 17
           distribution: temurin
       - name: Download latest archetype snapshot
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: latest-snapshot
       - name: Download archetype pom
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: latest-snapshot-pom
       - name: Display structure of downloaded files
