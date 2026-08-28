@@ -26,12 +26,12 @@ jobs:
     - name: Build and test archetype
       run: ./mvnw -B -ntp clean verify
     - name: Upload archetype for tests
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: latest-snapshot
         path: target/bonita-connector-archetype-*
     - name: Upload archetype pom for tests
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: latest-snapshot-pom
         path: pom.xml
