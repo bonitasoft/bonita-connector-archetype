@@ -1,9 +1,11 @@
 // Runs every script integration test (the IT.groovy files) in one go.
 // Run 'mvn install' first and then 'mvn groovy:execute -Dsource=target/test-classes/runScriptITs.groovy -Dscope=test' from project root
 
-def skipTests = session.userProperties.getProperty('skipTests') ?: project.properties.getProperty('skipTests')
-if (Boolean.parseBoolean(skipTests)) {
-    println "[Integration Test] skipTests is set: skipping the script integration tests"
+def skipRequested = ['skipTests', 'maven.test.skip'].any {
+    Boolean.parseBoolean(session.userProperties.getProperty(it) ?: project.properties.getProperty(it))
+}
+if (skipRequested) {
+    println "[Integration Test] skipTests or maven.test.skip is set: skipping the script integration tests"
     return
 }
 
