@@ -64,7 +64,19 @@ def modulePomFile = new File("${extensionsFolder}/${moduleArtifactId}/pom.xml")
 def referencePomFile = new File("${testPath}/reference/pom.xml")
 assert referencePomFile.text == modulePomFile.text: 'Reference pom and project pom should have the same content'
 
-// TODO Bonita 12.0 GA: build the generated module (mvn verify) once a Bonita 12 org.bonitasoft:bonita-project parent is released on Maven Central
+// The stripped module must build as-is under the real Bonita project parent chain, which manages
+// the runtime bom, the compiler properties and the plugin versions removed by the cleanup
+println "Building generated sub module ..."
+def bout = new StringBuilder(), berr = new StringBuilder()
+def buildProc = "mvn -B -ntp verify".execute(null, moduleFolder)
+def boutThread = buildProc.consumeProcessOutputStream(bout)
+def berrThread = buildProc.consumeProcessErrorStream(berr)
+buildProc.waitForOrKill(10 * 60 * 1000)
+boutThread.join(60 * 1000)
+berrThread.join(60 * 1000)
+println "out> $bout\nerr> $berr"
+
+assert buildProc.exitValue() == 0: "Generated sub module build exit code should be 0"
 
 // Drift guard: archetype-post-generate.groovy hardcodes the plugins the published
 // org.bonitasoft:bonita-project parent is assumed to manage (bonitaProjectManagedPluginIds) and
