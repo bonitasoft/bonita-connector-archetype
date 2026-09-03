@@ -35,12 +35,6 @@ jobs:
           distribution: temurin
           cache: maven
 
-      # TODO Bonita 12.0 GA: remove this step once Bonita 12.0 is released on Maven Central (only needed to resolve runtime snapshots)
-      - name: Setup Maven settings
-        uses: bonitasoft/maven-settings-action@v2
-        with:
-          keeper-secret-config: ${{ secrets.KSM_CONFIG }}
-
       - name: Get archetype version
         id: get-app-version
         run: |
@@ -94,12 +88,6 @@ jobs:
           java-version: 17
           distribution: temurin
 
-      # TODO Bonita 12.0 GA: remove this step once Bonita 12.0 is released on Maven Central (only needed to resolve runtime snapshots)
-      - name: Setup Maven settings
-        uses: bonitasoft/maven-settings-action@v2
-        with:
-          keeper-secret-config: ${{ secrets.KSM_CONFIG }}
-
       - name: Cache Maven repository
         uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
@@ -113,7 +101,6 @@ jobs:
           mvn -B -ntp install:install-file -Dfile=bonita-connector-archetype-${{needs.build.outputs.app_version}}.jar -DpomFile=pom.xml
           rm pom.xml
 
-      # TODO Bonita 12.0 GA: switch -DbonitaVersion to 12.0.0
       - name: Generate project and build it
         shell: bash
         run: >-
@@ -125,7 +112,7 @@ jobs:
           -DartifactId=test-connector-${{ matrix.language }}
           -Dversion=1.0.0-SNAPSHOT
           -Dpackage=org.bonita.test.connector
-          -DbonitaVersion=12.0-SNAPSHOT
+          -DbonitaVersion=12.0.0
           -DclassName=MyTestConnector
           -Dlanguage=${{ matrix.language }}
 
