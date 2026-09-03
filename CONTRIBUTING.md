@@ -26,5 +26,3 @@ Ensure that your contribution is correctly tested:
 
 The script integration tests spawn the `mvn` found on your `PATH`, which must be Maven 3.9.6 or above (enforced by the `org.bonitasoft:bonita-project` parent resolved by the Bonita-project-shaped suite).
 
-<!-- TODO Bonita 12.0 GA: remove this note (grep 'TODO Bonita 12.0 GA' for all the sites to update) -->
-Note: until Bonita 12.0 is released on Maven Central, the integration tests build or resolve the generated projects against the `12.0-SNAPSHOT` Bonita runtime (including the `org.bonitasoft:bonita-project` parent for the Bonita-project-shaped suite), which requires access to the Bonitasoft Artifactory snapshot repositories in your Maven `settings.xml` (CI gets it through `bonitasoft/maven-settings-action`). Use `-DskipTests` to skip them.
