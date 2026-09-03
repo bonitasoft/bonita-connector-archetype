@@ -66,4 +66,33 @@ assert referencePomFile.text == modulePomFile.text: 'Reference pom and project p
 
 // TODO Bonita 12.0 GA: build the generated module (mvn verify) once a Bonita 12 org.bonitasoft:bonita-project parent is released on Maven Central
 
+// Drift guard: archetype-post-generate.groovy hardcodes the plugins the published
+// org.bonitasoft:bonita-project parent is assumed to manage (bonitaProjectManagedPluginIds) and
+// strips their pins from the generated module. Assert that assumption against the real
+// bonita-project pom chain (resolved into the local repository by the generation above), raw
+// models rather than the effective pom so super-POM entries cannot mask a real drift.
+println "Verifying the plugins assumed managed by org.bonitasoft:bonita-project ..."
+def bonitaProjectManagedPluginIds = ['maven-compiler-plugin', 'maven-surefire-plugin',
+                                     'maven-failsafe-plugin', 'maven-assembly-plugin', 'gmavenplus-plugin']
+def localRepository = new File('${settings.localRepository}')
+def managedPluginIds = [] as Set
+def parentDeclaration = new XmlSlurper().parse(new File("${testPath}/module-parent/pom.xml")).parent
+def parentGroupId = parentDeclaration.groupId.text()
+def parentArtifactId = parentDeclaration.artifactId.text()
+def parentVersion = parentDeclaration.version.text()
+for (int depth = 0; depth < 10 && parentArtifactId; depth++) {
+    def pomFile = new File(localRepository,
+            "${parentGroupId.replace('.', '/')}/${parentArtifactId}/${parentVersion}/${parentArtifactId}-${parentVersion}.pom")
+    assert pomFile.isFile(): "${parentGroupId}:${parentArtifactId}:${parentVersion} should be in the local repository: the generation above resolves the whole parent chain"
+    def model = new XmlSlurper().parse(pomFile)
+    [model.build.pluginManagement.plugins.plugin, model.build.plugins.plugin].each { plugins ->
+        plugins.findAll { it.version.text() }.each { managedPluginIds << it.artifactId.text() }
+    }
+    parentGroupId = model.parent.groupId.text()
+    parentArtifactId = model.parent.artifactId.text()
+    parentVersion = model.parent.version.text()
+}
+def unmanagedPluginIds = bonitaProjectManagedPluginIds - managedPluginIds
+assert !unmanagedPluginIds: "org.bonitasoft:bonita-project no longer manages ${unmanagedPluginIds}: update bonitaProjectManagedPluginIds in archetype-post-generate.groovy"
+
 println "SUCCESS"
