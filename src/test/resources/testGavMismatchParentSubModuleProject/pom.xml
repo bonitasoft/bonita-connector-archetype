@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Decoy: sits where the module parent's default relativePath (../pom.xml) points, but does
+         not match its declared parent GAV. The ancestor walk must NOT read it: it manages the
+         Bonita runtime and java.version, so a regression of the GAV check flips the generated
+         module from the keep-and-warn path to the cleanup path and fails the reference compare -->
+    <groupId>com.company.other</groupId>
+    <artifactId>unrelated-aggregator</artifactId>
+    <version>9.9.9</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <java.version>17</java.version>
+        <!-- TODO Bonita 12.0 GA: switch to 12.0.0 -->
+        <bonita-runtime.version>12.0-SNAPSHOT</bonita-runtime.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.bonitasoft.runtime</groupId>
+                <artifactId>bonita-runtime-bom</artifactId>
+                <version>${bonita-runtime.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>

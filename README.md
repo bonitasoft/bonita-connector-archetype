@@ -8,16 +8,19 @@
 ## Bonita Connector Archetype
 
 This project contains a maven archetype, which allow to easily setup a Bonita connector project.  
-You can find the complete documentation of this archetype with a detailed example on our [documentation website](https://documentation.ofelia.com/bonita/7.11/connector-archetype)
+You can find the complete documentation of this archetype with a detailed example on our [documentation website](https://documentation.ofelia.com/bonita/latest/process/connector-archetype)
+
+### Disclaimer
+
+* Compatible with Bonita 12.0+ (Jakarta EE). Requires a JDK 17 or higher.
+* For Bonita 7.10 to 11.x, use the archetype **1.3.x** (maintained on the [`support/1.3.x`](https://github.com/bonitasoft/bonita-connector-archetype/tree/support/1.3.x) branch)
 
 ### Setup a connector project using the archetype 
 
-⚠️ **Java 11 is required for Bonita 7.13+**
+You can setup a Bonita connector project using the following command, from a terminal: 
 
- You can setup a Bonita connector project using the following command, from a terminal: 
- 
- _Make sure that you do not launch the command from an existing maven project._
- 
+_Make sure that you do not launch the command from an existing maven project._
+
 ```
 mvn archetype:generate -DarchetypeGroupId=org.bonitasoft.archetypes -DarchetypeArtifactId=bonita-connector-archetype
 ```
@@ -33,7 +36,7 @@ You'll then have to specify interactively the properties of your project:
 	 - Must match the following regex: `^[a-zA-Z0-9\-]+$`
 - **version:** the version of your connector _(default value: 1.0-SNAPSHOT)_
 - **package** the package in which the connector source files will be created _(default value: the group id of the connector)_
-- **bonitaVersion:** the targeted Bonita version
+- **bonitaVersion:** the targeted Bonita version (12.0 or above)
 - **className:** the class name of your connector 
     - Must match the following regex: `^[a-zA-Z_$][a-zA-Z\d_$]+$` (A Java classname valid identifier)
     - Example: _MyConnector1_
@@ -47,13 +50,13 @@ You'll then have to specify interactively the properties of your project:
 
 A folder named _[your artifact id]_ is created, with your Bonita connector project, ready to use.
 
-⚠️ You can avoid the interactive mode by specifying all properties of your project directly in the command line, but by doing that you'll bypass the validation performed on the properties content.
+⚠️ You can avoid the interactive mode by specifying all properties of your project directly in the command line, but by doing that you'll bypass most of the validation performed on the properties content (the minimum Bonita version is still enforced).
 
 ### Building the archetype
 The archetype can be installed in your local maven repository.
 
- 1. Clone this project
- 2. From a terminal, enter the following command at the root of the cloned project: 
+1. Clone this project
+2. From a terminal, enter the following command at the root of the cloned project: 
 ```
 ./mvnw clean install
 ```
@@ -63,7 +66,7 @@ The archetype is now installed on your local maven repository, and is ready to b
 ### Contributing
 
 Please sign the contributor license agreement and read our [contribution guidelines](CONTRIBUTING.md) before to open a pull request. 
- 
+
 <a href="https://cla-assistant.io/bonitasoft/bonita-connector-archetype"><img src="https://cla-assistant.io/readme/badge/bonitasoft/bonita-connector-archetype" alt="CLA assistant" /></a>
 
 ### Release this project
@@ -75,7 +78,7 @@ The GitHub Action [Release](https://github.com/bonitasoft/bonita-connector-arche
 
 So, to release a new version of the project, you have to:
 - Open the [Release workflow](https://github.com/bonitasoft/bonita-connector-archetype/actions/workflows/release.yml) and click *Run workflow*
-- Fill in the version to release (e.g. `1.3.1`) and the next development version (e.g. `1.3.2-SNAPSHOT`)
+- Fill in the version to release (e.g. `2.0.0`) and the next development version (e.g. `2.0.1-SNAPSHOT`)
 - Leave the `branch` input to `master`, unless you want to release from another branch
 - Leave the `auto-publish` input unchecked to review the deployment before publishing it, or check it to publish to Maven Central automatically
 
