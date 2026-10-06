@@ -35,7 +35,7 @@
     <central-publishing-maven-plugin.version>0.11.0</central-publishing-maven-plugin.version>
     <groovy-maven-plugin.version>2.1.1</groovy-maven-plugin.version>
     <maven-archetype.version>3.4.1</maven-archetype.version>
-    <maven-gpg-plugin.version>3.2.7</maven-gpg-plugin.version>
+    <maven-gpg-plugin.version>3.2.8</maven-gpg-plugin.version>
     <maven-install-plugin.version>3.1.4</maven-install-plugin.version>
   </properties>
 
