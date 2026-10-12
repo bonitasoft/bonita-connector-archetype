@@ -17,8 +17,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- Bonita -->
-        <!-- TODO Bonita 12.0 GA: switch to 12.0.0 -->
-        <bonita-runtime.version>12.0-SNAPSHOT</bonita-runtime.version>
+        <bonita-runtime.version>12.0.0</bonita-runtime.version>
 
         <!-- Maven plugins -->
         <maven-assembly-plugin.version>3.8.0</maven-assembly-plugin.version>

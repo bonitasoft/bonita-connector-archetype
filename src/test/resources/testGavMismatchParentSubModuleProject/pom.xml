@@ -14,8 +14,7 @@
 
     <properties>
         <java.version>17</java.version>
-        <!-- TODO Bonita 12.0 GA: switch to 12.0.0 -->
-        <bonita-runtime.version>12.0-SNAPSHOT</bonita-runtime.version>
+        <bonita-runtime.version>12.0.0</bonita-runtime.version>
     </properties>
 
     <dependencyManagement>

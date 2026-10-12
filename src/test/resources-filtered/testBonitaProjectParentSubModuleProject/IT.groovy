@@ -23,7 +23,6 @@ if (moduleFolder.exists()) {
 }
 
 // When
-// TODO Bonita 12.0 GA: switch -DbonitaVersion to 12.0.0 and regenerate the reference pom
 println "Generate sub module ..."
 def sout = new StringBuilder(), serr = new StringBuilder()
 def proc = """mvn archetype:generate -B -ntp \
@@ -36,7 +35,7 @@ def proc = """mvn archetype:generate -B -ntp \
     -Dpackage=com.company.bonitasoft \
     -DclassName=MyConnector \
     -Dlanguage=java \
-    -DbonitaVersion=12.0-SNAPSHOT \
+    -DbonitaVersion=12.0.0 \
     -Dwrapper=false
 """.execute(null, new File(extensionsFolder))
 def soutThread = proc.consumeProcessOutputStream(sout)
