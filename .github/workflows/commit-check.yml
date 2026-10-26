@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0  # Required for merge-base checks
-      - uses: commit-check/commit-check-action@f803083a5bf0867b60d77189bc3810fce2f0e314 # v2.15.0
+      - uses: commit-check/commit-check-action@b6819c7bfd40f576d670a78712646a67f2659ff3 # v2.18.2
         env:
           CCHK_IGNORE_AUTHORS: "dependabot[bot]"
           CCHK_SUBJECT_MAX_LENGTH: 120
